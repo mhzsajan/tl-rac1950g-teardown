@@ -1,0 +1,23 @@
+{
+ "pristineIds": 32316,
+ "builtIds": 32316,
+ "idsMissingInBuilt": 0,
+ "idsAddedInBuilt": 0,
+ "idsRenamed": 0,
+ "ok": true,
+ "samplesMissing": [],
+ "samplesAdded": [],
+ "samplesRenamed": [],
+ "crashIdCheck": {
+  "id": "0x7f0909f6",
+  "pristine": [
+   "id",
+   "device_list_empty_view_online_group_add_device_tv"
+  ],
+  "built": [
+   "id",
+   "device_list_empty_view_online_group_add_device_tv"
+  ],
+  "same": true
+ }
+}

@@ -1,0 +1,1740 @@
+{
+ "task": "task-2: translate native Android string resources to English + rebuild resource variant",
+ "generatedAt": "2026-10-26T21:14:40",
+ "generator": "work/res/apply.py (idempotent; reads pristine snapshot, writes work/res mirror + orig-res tree)",
+ "cache": {
+  "path": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\cache.json",
+  "entries": 11849,
+  "final": true,
+  "note": "Lead owns cache.json; this task never writes it. Values-zh and >400-char bodies come from work/res/extra-en.json + extra-by-name.json.",
+  "extraTranslations": {
+   "hashedTexts": 3,
+   "names": [
+    "robot_map_capture_privacy_policy_content",
+    "srl_component_falsify",
+    "srl_content_empty"
+   ]
+  }
+ },
+ "scope": {
+  "patched": [
+   "res/values/strings.xml",
+   "res/values/arrays.xml",
+   "res/values/plurals.xml",
+   "res/values-zh/strings.xml"
+  ],
+  "notTouched": "res/layout, res/drawable, res/xml, res/anim, res/raw and every other non-values resource, AndroidManifest.xml, assets/, lib/, classes*.dex - only <string>/<item> bodies in the four files above were rewritten",
+  "mirror": "identical copies written to work/res/<same relative path>"
+ },
+ "translation": {
+  "files": [
+   {
+    "file": "values/strings.xml",
+    "elements": 10473,
+    "translated": 9002,
+    "misses": 0,
+    "unchanged": 1471
+   },
+   {
+    "file": "values/arrays.xml",
+    "elements": 1188,
+    "translated": 449,
+    "misses": 0,
+    "unchanged": 739
+   },
+   {
+    "file": "values/plurals.xml",
+    "elements": 2,
+    "translated": 0,
+    "misses": 0,
+    "unchanged": 2
+   },
+   {
+    "file": "values-zh/strings.xml",
+    "elements": 2,
+    "translated": 2,
+    "misses": 0,
+    "unchanged": 0
+   }
+  ],
+  "translatedBodies": 9453,
+  "punctOnlyBodiesTranslated": 32,
+  "cacheMissBodies": 0,
+  "cacheMissesByFile": {},
+  "cacheMissSamples": [],
+  "remainingCJKCharsInOutput": {
+   "values/strings.xml": 0,
+   "values/arrays.xml": 0,
+   "values/plurals.xml": 0,
+   "values-zh/strings.xml": 0
+  }
+ },
+ "placeholderMismatches": [
+  {
+   "file": "values/strings.xml",
+   "name": "cloud_storage_multi_ipc_info",
+   "src": "“%s”的%d个通道",
+   "en": "%2$d channels for \"%1$s\"",
+   "srcSpecs": [
+    "s",
+    "d"
+   ],
+   "enSpecs": [
+    "d",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  },
+  {
+   "file": "values/strings.xml",
+   "name": "robot_map_damage_dialog_content_more",
+   "src": "无法找到“%s”等%d个地图文件，请重新创建地图。",
+   "en": "Unable to find %2$d map files such as \"%1$s\", please recreate the map.",
+   "srcSpecs": [
+    "s",
+    "d"
+   ],
+   "enSpecs": [
+    "d",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  },
+  {
+   "file": "values/strings.xml",
+   "name": "serve_transfer_ai_assistant_dialog_note",
+   "src": "确定要把“%1$s”的%2$d个AI云助手套餐转移给“%3$s”使用吗？",
+   "en": "Are you sure you want to transfer the %2$d AI cloud assistant packages of \"%1$s\" to \"%3$s\"?",
+   "srcSpecs": [
+    "s",
+    "d",
+    "s"
+   ],
+   "enSpecs": [
+    "d",
+    "s",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  },
+  {
+   "file": "values/strings.xml",
+   "name": "serve_transfer_ai_assistant_dialog_note_with_probation",
+   "src": "确定要把“%1$s”的%2$d个AI云助手套餐转移给“%3$s”使用吗？转移后您正在试用的AI云助手月套餐将失效，会立即生效转移的服务。",
+   "en": "Are you sure you want to transfer the %2$d AI cloud assistant packages of \"%1$s\" to \"%3$s\"? After the transfer, the AI ​​Cloud Assistant monthly package you are",
+   "srcSpecs": [
+    "s",
+    "d",
+    "s"
+   ],
+   "enSpecs": [
+    "d",
+    "s",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  },
+  {
+   "file": "values/strings.xml",
+   "name": "serve_transfer_cloud_storage_dialog_note",
+   "src": "确定要把“%1$s”的%2$d个云存储套餐转移给“%3$s”使用吗？",
+   "en": "Are you sure you want to transfer the %2$d cloud storage packages of \"%1$s\" to \"%3$s\"?",
+   "srcSpecs": [
+    "s",
+    "d",
+    "s"
+   ],
+   "enSpecs": [
+    "d",
+    "s",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  },
+  {
+   "file": "values/strings.xml",
+   "name": "serve_transfer_cloud_storage_dialog_note_with_probation",
+   "src": "确定要把“%1$s”的%2$d个云存储套餐转移给“%3$s”使用吗？转移后您正在试用的%4$s将失效，会立即生效转移的服务。",
+   "en": "Are you sure you want to transfer the %2$d cloud storage packages of \"%1$s\" to \"%3$s\"? After the transfer, the %4$s you are trying out will become invalid, and ",
+   "srcSpecs": [
+    "s",
+    "d",
+    "s",
+    "s"
+   ],
+   "enSpecs": [
+    "d",
+    "s",
+    "s",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  },
+  {
+   "file": "values/strings.xml",
+   "name": "serve_transfer_paid_share_dialog_note",
+   "src": "确定要把“%1$s”的%2$d个高级共享套餐转移给“%3$s”使用吗？",
+   "en": "Are you sure you want to transfer %2$d advanced sharing packages of \"%1$s\" to \"%3$s\"?",
+   "srcSpecs": [
+    "s",
+    "d",
+    "s"
+   ],
+   "enSpecs": [
+    "d",
+    "s",
+    "s"
+   ],
+   "how": "cache",
+   "action": "kept-english (fewer/equal args -> runtime safe)"
+  }
+ ],
+ "placeholderMismatchesNote": "These 7 entries are NOT lost placeholders. Every one is a type-correct REORDER: the English sentence order differs from the Chinese, so each English specifier was mapped back to the source argument by conversion type and written positionally (e.g. source `“%s”的%d个通道` with args (String, int) becomes `%2$d channels for \"%1$s\"`, and a MT-invented `%d` on a String argument is restored to `%s`). Argument count and argument types are unchanged - nothing is dropped. All 966 translated format strings were additionally run through a Java String.format simulator: 0 unsafe.",
+ "formatRepairs": [
+  {
+   "name": "account_logoff_phone_dialog_content",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "拨打%s",
+   "en": "Dial %s"
+  },
+  {
+   "name": "account_mobile_bind_limit_date_tips",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "检测到您还未进行实名认证，请完成认证，否则%s后账号将无法使用。",
+   "en": "It is detected that you have not performed real-name authentication. Please complete the authenticat"
+  },
+  {
+   "name": "account_send_again_countdown",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "重新发送(%ds)",
+   "en": "Resend(%ds)"
+  },
+  {
+   "name": "account_send_phone_vericode_tips",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "我们已向 %s 发送验证码短信，请查看后输入验证码",
+   "en": "We have sent a verification code SMS to %s. Please check and enter the verification code."
+  },
+  {
+   "name": "account_send_vericode_tips",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "我们已向 %s 发送验证码，请查看后输入验证码",
+   "en": "We have sent a verification code to %s, please check and enter the verification code"
+  },
+  {
+   "name": "add_feature_to_followed_face_hint",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "请选择同一个人的不同图片（最多%d张），用于提取人脸特征，以提高人脸识别准确率。",
+   "en": "Please select different pictures of the same person (up to %d pictures) to extract facial features t"
+  },
+  {
+   "name": "add_subscribe_reach_limit",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "最多添加%d个关注",
+   "en": "Add at most %d followers"
+  },
+  {
+   "name": "ai_analysis_open_success_tip",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已为%s成功购买AI视频分析套餐",
+   "en": "AI video analysis package has been successfully purchased for %s"
+  },
+  {
+   "name": "ai_analysis_open_success_tip_batch",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已为%d台设备成功购买AI视频分析套餐",
+   "en": "AI video analysis package has been successfully purchased for %d devices"
+  },
+  {
+   "name": "ai_analysis_probation_cloud_storage_tips",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "本服务需搭配云存储服务使用，您可以免费领取%s试用。",
+   "en": "This service needs to be used with cloud storage service. You can get %s for free trial."
+  },
+  {
+   "name": "ai_analysis_search_result_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d个搜索结果",
+   "en": "%d search results"
+  },
+  {
+   "name": "ai_analysis_service_remain_n_days_format",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "AI视频分析服务剩余%d天到期",
+   "en": "The remaining %d days of the AI ​​video analysis service expire"
+  },
+  {
+   "name": "album_cloud_storage_list_item_info",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "今天已存储 %d 段录像",
+   "en": "%d videos have been stored today"
+  },
+  {
+   "name": "album_date_no_year",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s月%s日",
+   "en": "%s month %s day"
+  },
+  {
+   "name": "album_export_success_with_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d个文件成功保存至系统相册",
+   "en": "%d files were successfully saved to the system album"
+  },
+  {
+   "name": "album_remaining_space",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "手机剩余%s空间",
+   "en": "%s remaining space on mobile phone"
+  },
+  {
+   "name": "album_share_num_exceed",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "分享图片超过%d张，请重新选择",
+   "en": "More than %d pictures have been shared, please select again."
+  },
+  {
+   "name": "battery_doorbell_setting_familiar_face_capture_cancel_follow_hint",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "删除后，此人的所有录像及抓拍图片将不会再标记为“%s”，确定要删除吗？",
+   "en": "After deletion, all videos and snapshots of this person will no longer be marked as \"%s\". Are you su"
+  },
+  {
+   "name": "battery_doorbell_setting_familiar_face_default_name",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "熟人_%s",
+   "en": "Acquaintance_%s"
+  },
+  {
+   "name": "battery_doorbell_setting_familiar_face_hint_select_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已选（%d）",
+   "en": "Selected (%d)"
+  },
+  {
+   "name": "battery_doorbell_setting_familiar_face_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "全部熟人人脸（%d）",
+   "en": "All familiar faces (%d)"
+  },
+  {
+   "name": "battery_doorbell_setting_msg_notification_stay_seconds_later_notify",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "有人逗留%d秒以上时通知",
+   "en": "Notify when someone stays for more than %d seconds"
+  },
+  {
+   "name": "battery_doorbell_setting_ring_schedule_desc",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d个时段",
+   "en": "%d periods"
+  },
+  {
+   "name": "battery_doorbell_setting_ring_schedule_desc_twoday",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%02d:%02d - %02d:%02d次日",
+   "en": "%02d:%02d - %02d:%02dThe next day"
+  },
+  {
+   "name": "battery_doorbell_setting_ring_schedule_list_item_time_morrow",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "次日 %02d:%02d",
+   "en": "Next day %02d:%02d"
+  },
+  {
+   "name": "battery_doorbell_setting_ring_schedule_list_item_title",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "响铃时段%d",
+   "en": "Ring period %d"
+  },
+  {
+   "name": "battery_doorbell_setting_ring_schedule_toast",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "最多支持添加%d个时段",
+   "en": "Supports adding up to %d time periods"
+  },
+  {
+   "name": "battery_doorbell_setting_wifi_strength_detect_current_wifi",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "当前网络：%s",
+   "en": "Current network: %s"
+  },
+  {
+   "name": "biz_feature_detect_fail",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "第%d张特征识别失败",
+   "en": "Feature recognition of the %dth picture failed"
+  },
+  {
+   "name": "business_share_device_choose_count",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已选 %d 个设备",
+   "en": "%d devices selected"
+  },
+  {
+   "name": "business_share_expired_content",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "您的%s已过期，设备无法继续享受服务，请及时续费。",
+   "en": "Your %s has expired and the device can no longer enjoy the service. Please renew in time."
+  },
+  {
+   "name": "camera_display_add_channel_ip",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "设备IP：%s",
+   "en": "Device IP: %s"
+  },
+  {
+   "name": "camera_display_album_delete_num_tip",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d张图片已删除",
+   "en": "%d pictures have been deleted"
+  },
+  {
+   "name": "camera_display_album_delete_select",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已选择（%d）",
+   "en": "Selected (%d)"
+  },
+  {
+   "name": "camera_display_upload_cancel_tip",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "确定要取消上传余下的%d张照片吗？",
+   "en": "Are you sure you want to cancel uploading the remaining %d photos?"
+  },
+  {
+   "name": "camera_display_upload_image_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d张照片上传成功",
+   "en": "%d photo uploaded successfully"
+  },
+  {
+   "name": "camera_display_upload_img_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "上传照片（%d）",
+   "en": "Upload photo (%d)"
+  },
+  {
+   "name": "camera_display_upload_img_select_limit",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "最多选择%d张图片",
+   "en": "Select at most %d pictures"
+  },
+  {
+   "name": "camera_display_upload_media_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "上传（%d）",
+   "en": "Upload (%d)"
+  },
+  {
+   "name": "camera_display_upload_media_select_limit",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "最多选择%d个文件",
+   "en": "Select at most %d files"
+  },
+  {
+   "name": "chart_average_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "日均%d人",
+   "en": "Average %d people per day"
+  },
+  {
+   "name": "chart_choose_month_fragment_title_month",
+   "how": "name-override",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d月",
+   "en": "%d"
+  },
+  {
+   "name": "chart_choose_month_fragment_title_year",
+   "how": "name-override",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d年",
+   "en": "%d"
+  },
+  {
+   "name": "chart_heatmap_hour",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%d时",
+   "en": "At %d"
+  },
+  {
+   "name": "chart_total_num",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "总计%d人",
+   "en": "Total %d people"
+  },
+  {
+   "name": "cloud_add_4g_ipc_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 4G摄像机",
+   "en": "%s 4G camera"
+  },
+  {
+   "name": "cloud_add_4g_solar_controller_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 4G太阳能供电系统",
+   "en": "%s 4G solar power supply system"
+  },
+  {
+   "name": "cloud_add_battery_doorbell_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 无线智能可视门铃",
+   "en": "%s wireless smart video doorbell"
+  },
+  {
+   "name": "cloud_add_door_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 门铃摄像机",
+   "en": "%s doorbell camera"
+  },
+  {
+   "name": "cloud_add_doorbell_mate_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 门铃伴侣",
+   "en": "%s doorbell companion"
+  },
+  {
+   "name": "cloud_add_dp_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 无线可视主机",
+   "en": "%s wireless video host"
+  },
+  {
+   "name": "cloud_add_ipc_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 网络摄像机",
+   "en": "%s network camera"
+  },
+  {
+   "name": "cloud_add_nvr_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 网络硬盘录像机",
+   "en": "%s network hard disk video recorder"
+  },
+  {
+   "name": "cloud_add_robot_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 扫地机器人",
+   "en": "%s sweeping robot"
+  },
+  {
+   "name": "cloud_add_solar_controller_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 太阳能控制器",
+   "en": "%s solar controller"
+  },
+  {
+   "name": "cloud_add_wired_ipc_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 有线网络摄像机",
+   "en": "%s wired network camera"
+  },
+  {
+   "name": "cloud_add_wireless_ipc_success",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "%s 无线网络摄像机",
+   "en": "%s wireless network camera"
+  },
+  {
+   "name": "cloud_ai_open_success_tip",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已为%s成功购买AI云助手套餐",
+   "en": "The AI ​​cloud assistant package has been successfully purchased for %s"
+  },
+  {
+   "name": "cloud_ai_open_success_tip_batch",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "已为%d台设备成功购买AI云助手套餐",
+   "en": "AI cloud assistant package has been successfully purchased for %d devices"
+  },
+  {
+   "name": "cloud_ai_phone_notification_left_time",
+   "how": "cache",
+   "notes": [
+    "reconciled-positional-specifiers"
+   ],
+   "src": "电话提醒服务次数：%d次",
+   "en": "Number of phone reminder services: %d times"
+  }
+ ],
+ "xmlValidation": [
+  {
+   "file": "values/strings.xml",
+   "ok": true,
+   "elements": 10476,
+   "bodiesChanged": 9001,
+   "problems": []
+  },
+  {
+   "file": "values/arrays.xml",
+   "ok": true,
+   "elements": 1325,
+   "bodiesChanged": 449,
+   "problems": []
+  },
+  {
+   "file": "values/plurals.xml",
+   "ok": true,
+   "elements": 4,
+   "bodiesChanged": 0,
+   "problems": []
+  },
+  {
+   "file": "values-zh/strings.xml",
+   "ok": true,
+   "elements": 3,
+   "bodiesChanged": 2,
+   "problems": []
+  }
+ ],
+ "provenance": {
+  "assets": {
+   "filesInVendorApk": 77,
+   "filesInTree": 77,
+   "missingFromTree": 0,
+   "extraInTree": 0,
+   "byteChanged": 0,
+   "missingSamples": [],
+   "extraSamples": [],
+   "changedSamples": [],
+   "identical": true
+  },
+  "lib": {
+   "filesInVendorApk": 129,
+   "filesInTree": 129,
+   "missingFromTree": 0,
+   "extraInTree": 0,
+   "byteChanged": 0,
+   "missingSamples": [],
+   "extraSamples": [],
+   "changedSamples": [],
+   "identical": true
+  },
+  "classesDex": {
+   "filesInVendorApk": 5,
+   "filesInTree": 5,
+   "missingFromTree": 0,
+   "extraInTree": 0,
+   "byteChanged": 0,
+   "missingSamples": [],
+   "extraSamples": [],
+   "changedSamples": [],
+   "identical": true
+  },
+  "builtApk": {
+   "assets": {
+    "filesInVendorApk": 77,
+    "filesInTree": 77,
+    "missingFromTree": 0,
+    "extraInTree": 0,
+    "byteChanged": 0,
+    "missingSamples": [],
+    "extraSamples": [],
+    "changedSamples": [],
+    "identical": true
+   },
+   "lib": {
+    "filesInVendorApk": 129,
+    "filesInTree": 129,
+    "missingFromTree": 0,
+    "extraInTree": 0,
+    "byteChanged": 0,
+    "missingSamples": [],
+    "extraSamples": [],
+    "changedSamples": [],
+    "identical": true
+   },
+   "dex": {
+    "filesInVendorApk": 5,
+    "filesInTree": 5,
+    "missingFromTree": 0,
+    "extraInTree": 0,
+    "byteChanged": 0,
+    "missingSamples": [],
+    "extraSamples": [],
+    "changedSamples": [],
+    "identical": true
+   },
+   "manifestByteIdentical": true,
+   "manifestSha256": {
+    "vendor": "a537806ebcfbf51619f999731118129bdb9b0748297ef768c76795c4759cc36c",
+    "built": "a537806ebcfbf51619f999731118129bdb9b0748297ef768c76795c4759cc36c"
+   }
+  },
+  "writeScope": {
+   "applyScript": "work/res/apply.py",
+   "pathsWritten": [
+    "work/res/values/strings.xml",
+    "work/res/values/arrays.xml",
+    "work/res/values/plurals.xml",
+    "work/res/values-zh/strings.xml",
+    "orig-res/res/values/strings.xml",
+    "orig-res/res/values/arrays.xml",
+    "orig-res/res/values/plurals.xml",
+    "orig-res/res/values-zh/strings.xml"
+   ],
+   "neverWrittenByTask": [
+    "orig-res/assets/**",
+    "orig-res/lib/**",
+    "orig-res/classes*.dex",
+    "orig-res/AndroidManifest.xml",
+    "orig-res/res/** excluding the four values XML files"
+   ],
+   "apktoolBuildArtifact": "orig-res/build/ — created by `apktool b`, intermediate resource cache, not part of the APK and not written by this task's scripts.",
+   "note": "Decoded raw files keep the vendor zip timestamps (many are 1981), so file mtimes are not a reliable modification signal; the comparison above is by SHA-256 of content instead."
+  },
+  "patchedFilesSha256": {
+   "values/strings.xml": {
+    "workResSha256": "dda322e0812dae2b4a08e109608e8cd35acbc239004e4152749dfcfc79ada247",
+    "treeSha256": "dda322e0812dae2b4a08e109608e8cd35acbc239004e4152749dfcfc79ada247",
+    "mirrorIdentical": true,
+    "bytes": 1137335
+   },
+   "values/arrays.xml": {
+    "workResSha256": "8b17b17999a1b8039155dc279a805aeafef9e97022a9cf2e999d8089f3b2ea15",
+    "treeSha256": "8b17b17999a1b8039155dc279a805aeafef9e97022a9cf2e999d8089f3b2ea15",
+    "mirrorIdentical": true,
+    "bytes": 63899
+   },
+   "values/plurals.xml": {
+    "workResSha256": "5180c4b4afa395c0e5d92b30de13239223500268c86b7722b148600dd81ad076",
+    "treeSha256": "5180c4b4afa395c0e5d92b30de13239223500268c86b7722b148600dd81ad076",
+    "mirrorIdentical": true,
+    "bytes": 246
+   },
+   "values-zh/strings.xml": {
+    "workResSha256": "81af887955a8ad0a975564c847035f304193812586fd7e621e5ba69bbf71b00e",
+    "treeSha256": "81af887955a8ad0a975564c847035f304193812586fd7e621e5ba69bbf71b00e",
+    "mirrorIdentical": true,
+    "bytes": 368
+   }
+  },
+  "ok": true
+ },
+ "reproducibility": {
+  "environment": {
+   "apktool": "C:\\Users\\o0o\\apk-work\\apktool.jar (3.0.3)",
+   "java": "OpenJDK 11.0.32.1 (Zulu)",
+   "python": "C:\\Python314\\python.exe (3.14)",
+   "aapt2": "2.20-eng.202610 (bundled in apktool.jar prebuilt/windows/aapt2.exe)"
+  },
+  "commands": {
+   "applyTranslations": [
+    "C:\\Python314\\python.exe",
+    "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\apply.py"
+   ],
+   "rebuildApk": [
+    "java",
+    "-jar",
+    "C:\\Users\\o0o\\apk-work\\apktool.jar",
+    "b",
+    "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\orig-res",
+    "--copy-original",
+    "-o",
+    "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk"
+   ],
+   "verify": [
+    [
+     "C:\\Python314\\python.exe",
+     "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\verify_arsc.py"
+    ],
+    [
+     "C:\\Python314\\python.exe",
+     "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\check_ids.py"
+    ],
+    [
+     "C:\\Python314\\python.exe",
+     "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\aapt2_verify.py"
+    ],
+    [
+     "C:\\Python314\\python.exe",
+     "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\format_sim.py"
+    ],
+    [
+     "C:\\Python314\\python.exe",
+     "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\check_provenance.py"
+    ],
+    [
+     "C:\\Python314\\python.exe",
+     "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\make_report.py"
+    ]
+   ],
+   "extractBundledAapt2": "C:\\Python314\\python.exe -c \\\"import zipfile;\\\" \\\"z=zipfile.ZipFile(r'C:\\\\Users\\\\o0o\\\\apk-work\\\\apktool.jar');\\\" \\\"open(r'tools\\\\aapt2.exe','wb').write(z.read('prebuilt/windows/aapt2.exe'))\\\" (run in work/res)"
+  },
+  "inputs": {
+   "vendorApk": {
+    "path": "C:\\Users\\o0o\\apk-work\\tplink-orig.apk",
+    "sha256": "2bf2ad9811a5c3b16745cdb1425fc9ec7cff636d3211482f806cd60b4afdff85"
+   },
+   "translationCache": {
+    "path": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\cache.json",
+    "sha256": "aefa0e5ed99418083cdd4d91d2cefa4d728001c6da2d7972d7931283ab2e081b",
+    "entries": 11849
+   },
+   "extraTranslations": {
+    "path": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\extra-en.json",
+    "sha256": "32787d456bd2beddbacac7aa6f2938057b5a50b0977836386c87e240b85fa1c2"
+   },
+   "pristineValuesSnapshot": "work/res/pristine/{values,values-zh}/*.xml (input for idempotent re-runs)",
+   "decodedTree": "orig-res (apktool d tplink-orig.apk --no-src)"
+  },
+  "outputs": {
+   "apk": {
+    "path": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk",
+    "sha256": "89a6f69e77242ffad2caec6ed5ddf684953a98c06e053a87b3379f025c3475dc",
+    "bytes": 166100102
+   },
+   "patchedXmlSha256": {
+    "values/strings.xml": {
+     "workResSha256": "dda322e0812dae2b4a08e109608e8cd35acbc239004e4152749dfcfc79ada247",
+     "treeSha256": "dda322e0812dae2b4a08e109608e8cd35acbc239004e4152749dfcfc79ada247",
+     "mirrorIdentical": true,
+     "bytes": 1137335
+    },
+    "values/arrays.xml": {
+     "workResSha256": "8b17b17999a1b8039155dc279a805aeafef9e97022a9cf2e999d8089f3b2ea15",
+     "treeSha256": "8b17b17999a1b8039155dc279a805aeafef9e97022a9cf2e999d8089f3b2ea15",
+     "mirrorIdentical": true,
+     "bytes": 63899
+    },
+    "values/plurals.xml": {
+     "workResSha256": "5180c4b4afa395c0e5d92b30de13239223500268c86b7722b148600dd81ad076",
+     "treeSha256": "5180c4b4afa395c0e5d92b30de13239223500268c86b7722b148600dd81ad076",
+     "mirrorIdentical": true,
+     "bytes": 246
+    },
+    "values-zh/strings.xml": {
+     "workResSha256": "81af887955a8ad0a975564c847035f304193812586fd7e621e5ba69bbf71b00e",
+     "treeSha256": "81af887955a8ad0a975564c847035f304193812586fd7e621e5ba69bbf71b00e",
+     "mirrorIdentical": true,
+     "bytes": 368
+    }
+   }
+  },
+  "note": "apply.py is idempotent: it always reads the pristine snapshot, so re-running it with a different cache is safe and deterministically rewrites the mirror + tree."
+ },
+ "variantScan": {
+  "valuesDirsWithCjk": [
+   {
+    "dir": "values",
+    "files": 12,
+    "withCjk": [
+     {
+      "file": "arrays.xml",
+      "cjkChars": 2096,
+      "cjkAnyChars": 2110
+     },
+     {
+      "file": "strings.xml",
+      "cjkChars": 96963,
+      "cjkAnyChars": 103776
+     }
+    ],
+    "withCjkAny": [
+     {
+      "file": "arrays.xml",
+      "cjkChars": 2096,
+      "cjkAnyChars": 2110
+     },
+     {
+      "file": "strings.xml",
+      "cjkChars": 96963,
+      "cjkAnyChars": 103776
+     }
+    ]
+   },
+   {
+    "dir": "values-zh",
+    "files": 1,
+    "withCjk": [
+     {
+      "file": "strings.xml",
+      "cjkChars": 45,
+      "cjkAnyChars": 49
+     }
+    ],
+    "withCjkAny": [
+     {
+      "file": "strings.xml",
+      "cjkChars": 45,
+      "cjkAnyChars": 49
+     }
+    ]
+   }
+  ],
+  "longCjkBodies": [
+   {
+    "file": "values/strings.xml",
+    "name": "robot_map_capture_privacy_policy_content",
+    "chars": 457,
+    "sample": "\"为了更好地保护您的权益，在开启物体抓拍功能前，请您仔细阅读以下内容，确认充分理解并同意后再使用本功能。\n\n1.当您启用物体抓拍功能时，视为您同意开启设备的摄像权限，设备将会在清扫过程中开启摄像头采集"
+   }
+  ],
+  "longCjkBodyCount": 1,
+  "nonValuesFilesWithHardcodedCjk": 0,
+  "nonValuesCjkDetail": [],
+  "conclusion": "Only values/{strings,arrays}.xml and values-zh/strings.xml carry CJK. No other values-* variant (density/land/night/car/watch/...) contains a single CJK char, so no variant can override the English default. No file outside res/values* contains hard-coded Chinese (layouts/manifest use @string references)."
+ },
+ "build": {
+  "cmd": [
+   "java",
+   "-jar",
+   "C:\\Users\\o0o\\apk-work\\apktool.jar",
+   "b",
+   "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\orig-res",
+   "--copy-original",
+   "-o",
+   "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk"
+  ],
+  "note": "apktool 3.0.3 has no -s/--no-src flag; raw classes*.dex re-added from tree when missing",
+  "tree": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\orig-res",
+  "outputApk": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk",
+  "exitCode": 0,
+  "seconds": 35.9,
+  "outputApkSizeBytes": 166100102,
+  "dexAddedByPostProcess": [],
+  "stdoutStderrTail": "I: Using Apktool 3.0.3 on tplink-orig.apk with 8 threads\nI: classes.dex has not changed.\nI: classes2.dex has not changed.\nI: classes3.dex has not changed.\nI: classes4.dex has not changed.\nI: classes5.dex has not changed.\nI: Building resources with aapt2...\nI: Copying original files...\nI: Building apk file...\nI: Importing assets...\nI: Importing lib...\nI: Importing unknown files...\nI: Built apk into: C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk\n",
+  "logFile": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\apktool-build.log"
+ },
+ "verification": {
+  "pristineApk": "C:\\Users\\o0o\\apk-work\\tplink-orig.apk",
+  "builtApk": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk",
+  "apkCompare": {
+   "vendorApk": "C:\\Users\\o0o\\apk-work\\tplink-orig.apk",
+   "builtApk": "C:\\Users\\o0o\\Documents\\deepseek-harness\\default-workspace\\tl-en\\work\\res\\res-variant-unsigned.apk",
+   "vendorSize": 165025876,
+   "builtSize": 166100102,
+   "manifestIdentical": true,
+   "manifestSha256": {
+    "pristine": "a537806ebcfbf51619f999731118129bdb9b0748297ef768c76795c4759cc36c",
+    "built": "a537806ebcfbf51619f999731118129bdb9b0748297ef768c76795c4759cc36c"
+   },
+   "entries": {
+    "pristine": 8816,
+    "built": 8816
+   },
+   "dexInBuilt": [
+    "classes.dex",
+    "classes2.dex",
+    "classes3.dex",
+    "classes4.dex",
+    "classes5.dex"
+   ],
+   "arscInBuilt": true
+  },
+  "zip": {
+   "entries": 8816,
+   "testzip": null,
+   "hasArsc": true,
+   "dex": [
+    "classes.dex",
+    "classes2.dex",
+    "classes3.dex",
+    "classes4.dex",
+    "classes5.dex"
+   ],
+   "hasManifest": true
+  },
+  "arscStrings": {
+   "built": {
+    "strings": 17757,
+    "cjk": 0,
+    "packages": 1,
+    "size": 3511456
+   },
+   "pristine": {
+    "strings": 17946,
+    "cjk": 8032,
+    "packages": 1,
+    "size": 3095988
+   }
+  },
+  "spotChecksTotal": 22,
+  "spotChecksPassed": 22,
+  "spotChecks": [
+   {
+    "name": "base_confirm_dialog_left_text",
+    "kind": "string",
+    "english": "Cancel",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "取消"
+   },
+   {
+    "name": "base_confirm_dialog_right_text",
+    "kind": "string",
+    "english": "Open",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "打开"
+   },
+   {
+    "name": "account_login",
+    "kind": "string",
+    "english": "Sign in",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "登录"
+   },
+   {
+    "name": "account_register",
+    "kind": "string",
+    "english": "Register",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "注册"
+   },
+   {
+    "name": "account_pwd",
+    "kind": "string",
+    "english": "Password",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "密码"
+   },
+   {
+    "name": "LAN_video_all_channel",
+    "kind": "string",
+    "english": "all channels",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "所有通道"
+   },
+   {
+    "name": "LAN_video_cancel_download",
+    "kind": "string",
+    "english": "Cancel download",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "取消下载"
+   },
+   {
+    "name": "LAN_video_download_fail",
+    "kind": "string",
+    "english": "Download failed",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "下载失败"
+   },
+   {
+    "name": "LAN_video_download_success",
+    "kind": "string",
+    "english": "Download successful",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "下载成功"
+   },
+   {
+    "name": "LAN_video_empty_files",
+    "kind": "string",
+    "english": "No files yet",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "暂无文件"
+   },
+   {
+    "name": "camera_display_set",
+    "kind": "string",
+    "english": "Settings",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "设置"
+   },
+   {
+    "name": "business_share_device_add",
+    "kind": "string",
+    "english": "Add",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "添加"
+   },
+   {
+    "name": "common_year",
+    "kind": "string",
+    "english": "Year",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "年"
+   },
+   {
+    "name": "common_month",
+    "kind": "string",
+    "english": "Month",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "月"
+   },
+   {
+    "name": "common_day",
+    "kind": "string",
+    "english": "Day",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "日"
+   },
+   {
+    "name": "common_high",
+    "kind": "string",
+    "english": "High",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "高"
+   },
+   {
+    "name": "common_low",
+    "kind": "string",
+    "english": "Low",
+    "englishPresent": true,
+    "chineseGone": true,
+    "sourceChinese": "低"
+   },
+   {
+    "name": "week_day",
+    "kind": "array",
+    "english": [
+     "Sunday",
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday"
+    ],
+    "sourceChinese": [
+     "日",
+     "一",
+     "二",
+     "三",
+     "四",
+     "五",
+     "六"
+    ],
+    "englishPresent": true,
+    "chineseGone": true
+   },
+   {
+    "name": "date_unit_list",
+    "kind": "array",
+    "english": [
+     "Year",
+     "Month",
+     "Day"
+    ],
+    "sourceChinese": [
+     "年",
+     "月",
+     "日"
+    ],
+    "englishPresent": true,
+    "chineseGone": true
+   },
+   {
+    "name": "time_unit_list",
+    "kind": "array",
+    "english": [
+     "Hour",
+     "Minute",
+     "Second"
+    ],
+    "sourceChinese": [
+     "时",
+     "分",
+     "秒"
+    ],
+    "englishPresent": true,
+    "chineseGone": true
+   },
+   {
+    "name": "abc_action_bar_home_description",
+    "kind": "string",
+    "english": "Navigate home",
+    "englishPresent": true,
+    "chineseGone": true
+   },
+   {
+    "name": "abc_action_mode_done",
+    "kind": "string",
+    "english": "Done",
+    "englishPresent": true,
+    "chineseGone": true
+   }
+  ],
+  "pristineCjkValues": 8032,
+  "pristineCjkValuesStillPresent": 0,
+  "pristineCjkChars": 98996,
+  "builtCjkChars": 0,
+  "residualCjkCount": 0,
+  "residualCjkSamples": [],
+  "ok": true
+ },
+ "independentVerification": {
+  "tool": "aapt2 2.20 (bundled in apktool 3.0.3: prebuilt/windows/aapt2.exe), `aapt2 dump resources` on both APKs",
+  "resourceIds": {
+   "pristine": 32316,
+   "built": 32316,
+   "missing": 0,
+   "added": 0,
+   "renamed": 0
+  },
+  "idStability": {
+   "pristineIds": 32316,
+   "builtIds": 32316,
+   "idsMissingInBuilt": 0,
+   "idsAddedInBuilt": 0,
+   "idsRenamed": 0,
+   "ok": true,
+   "crashIdCheck": {
+    "id": "0x7f0909f6",
+    "pristine": [
+     "id",
+     "device_list_empty_view_online_group_add_device_tv"
+    ],
+    "built": [
+     "id",
+     "device_list_empty_view_online_group_add_device_tv"
+    ],
+    "same": true
+   }
+  },
+  "before": {
+   "entries": 32316,
+   "valueStrings": 11087,
+   "valuesWithCjk": 9453,
+   "cjkChars": 105935,
+   "cjkCharsRangeOnly": 99104
+  },
+  "after": {
+   "entries": 32316,
+   "valueStrings": 11136,
+   "valuesWithCjk": 0,
+   "cjkChars": 0,
+   "cjkCharsRangeOnly": 0
+  },
+  "spotChecksPassed": 25,
+  "spotChecksTotal": 25,
+  "spotChecks": [
+   {
+    "name": "string/base_confirm_dialog_left_text",
+    "englishValues": [
+     "Cancel"
+    ],
+    "sourceValues": [
+     "取消"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/base_confirm_dialog_right_text",
+    "englishValues": [
+     "Open"
+    ],
+    "sourceValues": [
+     "打开"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/account_login",
+    "englishValues": [
+     "Sign in"
+    ],
+    "sourceValues": [
+     "登录"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/account_register",
+    "englishValues": [
+     "Register"
+    ],
+    "sourceValues": [
+     "注册"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/account_pwd",
+    "englishValues": [
+     "Password"
+    ],
+    "sourceValues": [
+     "密码"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/account_login_title",
+    "englishValues": [
+     "Login TP-LINK ID"
+    ],
+    "sourceValues": [
+     "登录TP-LINK ID"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/LAN_video_all_channel",
+    "englishValues": [
+     "all channels"
+    ],
+    "sourceValues": [
+     "所有通道"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/LAN_video_cancel_download",
+    "englishValues": [
+     "Cancel download"
+    ],
+    "sourceValues": [
+     "取消下载"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/LAN_video_download_fail",
+    "englishValues": [
+     "Download failed"
+    ],
+    "sourceValues": [
+     "下载失败"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/LAN_video_download_success",
+    "englishValues": [
+     "Download successful"
+    ],
+    "sourceValues": [
+     "下载成功"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/LAN_video_empty_files",
+    "englishValues": [
+     "No files yet"
+    ],
+    "sourceValues": [
+     "暂无文件"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/LAN_video_check_album",
+    "englishValues": [
+     "View"
+    ],
+    "sourceValues": [
+     "查看"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/camera_display_set",
+    "englishValues": [
+     "Settings"
+    ],
+    "sourceValues": [
+     "设置"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/business_share_device_add",
+    "englishValues": [
+     "Add"
+    ],
+    "sourceValues": [
+     "添加"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/common_year",
+    "englishValues": [
+     "Year"
+    ],
+    "sourceValues": [
+     "年"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/common_month",
+    "englishValues": [
+     "Month"
+    ],
+    "sourceValues": [
+     "月"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/common_day",
+    "englishValues": [
+     "Day"
+    ],
+    "sourceValues": [
+     "日"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/common_high",
+    "englishValues": [
+     "High"
+    ],
+    "sourceValues": [
+     "高"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/common_low",
+    "englishValues": [
+     "Low"
+    ],
+    "sourceValues": [
+     "低"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/common_none",
+    "englishValues": [
+     "None"
+    ],
+    "sourceValues": [
+     "无"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "array/week_day",
+    "englishValues": [
+     "Sunday",
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday"
+    ],
+    "sourceValues": [
+     "日",
+     "一",
+     "二",
+     "三",
+     "四",
+     "五",
+     "六"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "array/date_unit_list",
+    "englishValues": [
+     "Year",
+     "Month",
+     "Day"
+    ],
+    "sourceValues": [
+     "年",
+     "月",
+     "日"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "array/time_unit_list",
+    "englishValues": [
+     "Hour",
+     "Minute",
+     "Second"
+    ],
+    "sourceValues": [
+     "时",
+     "分",
+     "秒"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": true
+   },
+   {
+    "name": "string/abc_action_bar_home_description",
+    "englishValues": [
+     "Navigate home"
+    ],
+    "sourceValues": [
+     "Navigate home"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": false
+   },
+   {
+    "name": "string/abc_action_mode_done",
+    "englishValues": [
+     "Done"
+    ],
+    "sourceValues": [
+     "Done"
+    ],
+    "hasEnglish": true,
+    "chineseGone": true,
+    "sourceHadChinese": false
+   }
+  ],
+  "residualCjkValues": {
+   "count": 0,
+   "samples": []
+  },
+  "ok": true,
+  "notes": [
+   "The decoded aapt2 counter counts one value per resource/config entry, so it is higher than the deduped resources.arsc string-pool counter also reported here.",
+   "Resource IDs and names are identical in both APKs (32,316 entries, 0 missing / 0 added / 0 renamed), which rules out the ID-renumbering crash class."
+  ]
+ },
+ "decisions": [
+  "Preserved attributes byte-for-byte: apply.py replaces only the [body_start, body_end) span of <string>/<item> elements; element names, order, indentation, CRLF line endings and every attribute (notably formatted=\"false\" on 107 strings) are untouched.",
+  "Self-closing elements (e.g. <string name=\"common_empty\" />) are skipped by a real tag scanner; a naive regex (the one in build-cache.mjs) mis-parses it and produces one bogus cache key.",
+  "aapt2 does NOT collapse '%%': the pristine resources.arsc stores '%%' verbatim in 43 values. Therefore a literal percent is doubled ONLY in genuine format strings (source had format args, where String.format turns '%%' back into '%'); plain strings such as 'battery below 20%' keep a single '%' so the UI does not show '%%'.",
+  "Placeholders: positional indices are preserved; when MT reorders or changes conversions, each English specifier is mapped back to the source argument by conversion type (so a %s String arg is never formatted with %d), and 2+ specifiers are emitted positionally because aapt2 rejects multiple non-positional substitutions.",
+  "Apostrophes are always escaped as \\' (aapt2 rejects a bare apostrophe); odd quote runs are made literal with \\\" so aapt2 never reports an unterminated quote; & < > are XML entities; control characters are stripped; a leading @ or ? is escaped as \\@ / \\? so it is not parsed as a resource reference; existing <u> markup is kept as markup (aapt2 compiles it to a style span).",
+  "Context-sensitive values are translated by resource name/position, never by a global map: week_day = Sunday..Saturday; date_unit_list = Year/Month/Day; time_unit_list = Hour/Minute/Second; weekday_picker_*/share_select_week_day_* = Mon..Sun; common_month/月 = Month (not 'moon'); common_minute/分 = Min (not 'point'); SimpleDateFormat patterns (yyyy年MM月dd日 etc.) are rewritten as real English patterns because MT words would be misread as pattern letters.",
+  "Fullwidth CJK punctuation is normalised to ASCII in English values (IP： -> IP:, 【X】 -> [X], ￥ -> ¥): MT keeps CJK punctuation code points around English text, which are not Chinese characters but would look wrong and keep an audit at 'zero CJK-ish chars' from passing.",
+  "formatted=\"false\" only disables aapt2's compile-time format validation, NOT runtime String.format; those 107 strings therefore still go through specifier reconciliation (but never have literal % doubled). Verified with a Java-String.format simulator over all 966 translated format strings: 0 unsafe (no numeric conversion on a String arg, no missing arg, no bare %).",
+  "apktool 3.0.3 removed the -s/--no-src flag ('Unrecognized option: -s'). A plain `apktool b` was used instead; this version automatically copies the raw classes.dex..classes5.dex from the decoded tree ('I: Copying raw classes*.dex...'), so the rebuilt APK carries the original vendor dex. The build script checks the zip afterwards and only re-adds dex entries if apktool ever omits them.",
+  "The build tree is the Lead's decoded orig-res tree (patched in place); no other part of the tree was modified, so resource IDs are unchanged (public.xml untouched) - the 'Missing required view with ID' failure mode from the earlier full rebuild cannot be triggered by this change surface."
+ ]
+}

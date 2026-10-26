@@ -1,0 +1,1116 @@
+{
+ "generated": "2026-10-26T15:36:08.351Z",
+ "deliverable": {
+  "forPackStep": {
+   "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/AB739671AE5E56A529_v1.16.13.1060-master.bin",
+   "bytes": 3008656,
+   "layout": "original [0:757) prefix (176-byte header + describe.json ZIP) + fresh main ZIP",
+   "headerAbsoluteOffsetsValid": true
+  },
+  "header176OnlyAlternate": {
+   "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/AB739671AE5E56A529_v1.16.13.1060-master.header176-only.bin",
+   "bytes": 3008075,
+   "layout": "task-spec shape: 176-byte header + fresh main ZIP (drops describe.json)"
+  },
+  "patchedBusinessBundle": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/business.bundle.patched",
+  "patchedSdkBundle": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/sdk.bundle.patched",
+  "patchedBusinessSha256": "9d7dc1d4422dd9ab9542b1a8157d53c97ce26325b31ef578647f85382ac7ed6f",
+  "patchedSdkSha256": "9b685bdf202a7f6997a72ae75bfba9f0a3f984655f2b6bb9bc04f55d27403957"
+ },
+ "summary": {
+  "literalsReplacedBusiness": 2668,
+  "literalsReplacedSdk": 1367,
+  "literalsReplacedTotal": 4035,
+  "occurrencesReplacedBusiness": 5817,
+  "occurrencesReplacedSdk": 1655,
+  "occurrencesReplacedTotal": 7472,
+  "cjkCodePointsBefore": 64705,
+  "cjkCodePointsAfter": 6382,
+  "cjkCodePointsAllowlisted": 6382,
+  "cjkCodePointsOutsideAllowlist": 0,
+  "zeroCjkOutsideAllowlist": true,
+  "nodeCheckNotWorseThanBaseline": true,
+  "placeholderMismatchesBusiness": 0,
+  "placeholderMismatchesSdk": 0,
+  "placeholderMismatchesTotal": 0,
+  "stillChineseAnythingElse": 0,
+  "stillChineseAllowlistedDataTable": 1020,
+  "fragmentOverrideOccurrences": 463,
+  "fragmentOverrideUnique": 193,
+  "autoSpaceJunctionOccurrences": 35,
+  "whitespaceFidelityOccurrences": 61,
+  "changedVsPreviousBuildOccurrences": 559,
+  "changedVsPreviousBuildUnique": 258
+ },
+ "fragmentOverrides": {
+  "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/fragment-overrides.json",
+  "report": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/fragment-override-report.json",
+  "rule": {
+   "scope": "A literal is treated as a concatenation operand only when the character immediately before its opening quote or immediately after its closing quote is '+' in the bundle source. Standalone literals are never overridden.",
+   "order": "cache.json (per-entry validated) -> cache-extra.json -> curated fragment override for concatenation operands -> restore the literal's original leading/trailing spaces -> add the one separator space the glued English needs on the operand side.",
+   "spacingConvention": "Author-chosen exact spaces. Unit fragments attach to the number on their left and carry a trailing space only where another number follows: 天->'d ', 小时->'h ', 分钟->'min ', 秒->'s', 毫秒->'ms ', 时->':00'. This yields '3d 5h 2min 1s'. Suffix fragments that follow a number/word carry a leading space (' devices', ' blocked devices', ' APs'). Prefix fragments that precede a number/name carry a trailing space ('There are', 'Please enter ', 'Showing '). Counters: bare 台/个/款 collapse to a single space (number stays); compound counter+noun tokens become ' devices'/' APs'/etc.",
+   "counters": "台 is never 'Taiwan' now: %d台AP -> '2 APs', %d台设备 -> '3 devices', %d台已禁设备 -> '3 blocked devices'.",
+   "unavoidableSpacing": "Automatic junction spacing adds a single ASCII space on the operand side only when the English boundary character is alphanumeric (or ) , ; :) and no space is already present; this changes 41 occurrences in business + 2 in sdk.",
+   "notExpressible": "Fragments whose English word order cannot be produced by literal substitution (e.g. the topology line that joins array items with the Chinese separator '和' inside T.join('和'), or numeric count labels that use Chinese punctuation outside the translated literal) are left at their cache translation; see unusedOverrideKeys for curated entries that did not apply and THEME notes in report.json."
+  },
+  "counts": {
+   "overrideOccurrences": 463,
+   "overrideUnique": 193,
+   "autoSpacedOccurrences": 35,
+   "autoSpacedJunctions": 38,
+   "whitespaceFidelityOccurrences": 61,
+   "changedVsPreviousBuildOccurrences": 559,
+   "changedVsPreviousBuildUnique": 48,
+   "totalReplacedOccurrences": 7472
+  },
+  "placeholderGate": {
+   "checked": 191,
+   "failures": [],
+   "result": "PASS"
+  },
+  "overrideEntries": 191,
+  "appliedKeys": 187,
+  "unusedOverrideKeys": [
+   "毫秒",
+   "分钟后关闭",
+   "信道：",
+   "频段："
+  ],
+  "compositions": [
+   {
+    "case": "duration formatter",
+    "source": "f+\"天\"+h+\"小时\"+m+\"分钟\"+s+\"秒\"   (sample f=3 h=5 m=2 s=1)",
+    "before": "3Sky5Hour2Minute1Second",
+    "after": "3d 5h 2min 1s"
+   },
+   {
+    "case": "%d台已禁设备  (list title, n=3)",
+    "source": "\"有\"+n+\"台已禁设备\"",
+    "before": "Have3Banned device",
+    "after": "3 blocked devices"
+   },
+   {
+    "case": "%d台AP  (filtered AP list title, n=2)",
+    "source": "\"筛选出\"+n+\"台AP\"",
+    "before": "filter out2Taiwan AP",
+    "after": "Showing 2 APs"
+   },
+   {
+    "case": "%d台在线AP，%d台离线AP  (n=2, n2=1)",
+    "source": "\"有\"+(len-n)+\"台在线AP，\"+n+\"台离线AP\"",
+    "before": "Have2Taiwan online AP,1Taiwan offline AP",
+    "after": "2 online APs, 1 offline APs"
+   }
+  ],
+  "literalExamples": [
+   {
+    "case": "literal: 天",
+    "before": "Sky",
+    "after": "d "
+   },
+   {
+    "case": "literal: 小时",
+    "before": "Hour",
+    "after": "h "
+   },
+   {
+    "case": "literal: 分钟",
+    "before": "Minute",
+    "after": "min "
+   },
+   {
+    "case": "literal: 秒",
+    "before": "Second",
+    "after": "s"
+   },
+   {
+    "case": "literal: 台设备",
+    "before": "Equipment",
+    "after": " devices"
+   },
+   {
+    "case": "literal: 台AP",
+    "before": "Taiwan AP",
+    "after": " APs"
+   },
+   {
+    "case": "literal: 台已禁设备",
+    "before": "Banned device",
+    "after": " blocked devices"
+   },
+   {
+    "case": "literal: 有",
+    "before": "Have",
+    "after": ""
+   },
+   {
+    "case": "literal: 筛选出",
+    "before": "filter out",
+    "after": "Showing "
+   },
+   {
+    "case": "literal: 接入",
+    "before": "Access",
+    "after": "Connected via "
+   },
+   {
+    "case": "literal: 确定要重启",
+    "before": "Confirm to restart",
+    "after": "Are you sure you want to restart "
+   },
+   {
+    "case": "literal: 最多输入",
+    "before": "Maximum input",
+    "after": "Maximum "
+   },
+   {
+    "case": "literal: 个字符",
+    "before": "Characters",
+    "after": " characters"
+   },
+   {
+    "case": "literal: Wi-Fi名称：",
+    "before": "Wi-Fi name:",
+    "after": "Wi-Fi name: "
+   },
+   {
+    "case": "literal: 开放",
+    "before": "open",
+    "after": "Open for "
+   },
+   {
+    "case": "literal: 小时后关闭",
+    "before": "Close after hours",
+    "after": " hours then close"
+   },
+   {
+    "case": "literal: 禁止",
+    "before": "Prohibit",
+    "after": "Blocked "
+   },
+   {
+    "case": "literal: 加速中",
+    "before": "Accelerating",
+    "after": " acceleration"
+   },
+   {
+    "case": "literal: 删除（",
+    "before": "delete(",
+    "after": "Delete ("
+   },
+   {
+    "case": "literal: 设备\"",
+    "before": "equipment\"",
+    "after": "Device \""
+   }
+  ],
+  "autoSpacedExamples": [
+   {
+    "key": "本路由器支持对终端进行网速",
+    "before": "This router supports network speed control for terminals",
+    "after": "This router supports network speed control for terminals "
+   },
+   {
+    "key": "请将手机连接到Wi-Fi：",
+    "before": "Please connect your phone to Wi-Fi:",
+    "after": "Please connect your phone to Wi-Fi: "
+   },
+   {
+    "key": "频段当前工作模式为",
+    "before": "The current working mode of the frequency band is",
+    "after": " The current working mode of the frequency band is "
+   },
+   {
+    "key": "必须设置Wi-Fi密码。",
+    "before": "A Wi-Fi password must be set.",
+    "after": " A Wi-Fi password must be set."
+   },
+   {
+    "key": "请加密您的",
+    "before": "Please encrypt your",
+    "after": "Please encrypt your "
+   },
+   {
+    "key": "无线网络",
+    "before": "wireless network",
+    "after": " wireless network"
+   },
+   {
+    "key": "时间段已被某些设备用于限制上网时间或应用使用时间，无法删除。",
+    "before": "The time period has been used by some devices to limit Internet time or application usage time and cannot be deleted.",
+    "after": " The time period has been used by some devices to limit Internet time or application usage time and cannot be deleted."
+   },
+   {
+    "key": "与其他",
+    "before": "with other",
+    "after": " with other "
+   },
+   {
+    "key": "路由器已离线 (MAC：",
+    "before": "Router is offline (MAC:",
+    "after": "Router is offline (MAC: "
+   },
+   {
+    "key": "功能已开启，DHCP服务器默认为自动，不可修改",
+    "before": "The function is turned on. The DHCP server defaults to automatic and cannot be modified.",
+    "after": " The function is turned on. The DHCP server defaults to automatic and cannot be modified."
+   },
+   {
+    "key": "请选择",
+    "before": "Please select",
+    "after": "Please select "
+   },
+   {
+    "key": "更新说明:\\n",
+    "before": "Update instructions:\\n",
+    "after": "Update instructions:\\n "
+   },
+   {
+    "key": "信息",
+    "before": "information",
+    "after": " information"
+   },
+   {
+    "key": "路由的Wi-Fi名称和密码",
+    "before": "Router’s Wi-Fi name and password",
+    "after": " Router’s Wi-Fi name and password"
+   },
+   {
+    "key": "路由设置",
+    "before": "Router settings",
+    "after": " Router settings"
+   },
+   {
+    "key": "手机无法连接此设备的Wi-Fi，请前往Wi-Fi设置中将手机连接到设备Wi-Fi：",
+    "before": "The phone cannot connect to the Wi-Fi of this device. Please go to the Wi-Fi settings to connect the phone to the device Wi-Fi:",
+    "after": "The phone cannot connect to the Wi-Fi of this device. Please go to the Wi-Fi settings to connect the phone to the device Wi-Fi: "
+   }
+  ],
+  "whitespaceFidelityExamples": [
+   {
+    "key": "绑定路由器需身份校验，请输入当前TP-LINK ID的密码:",
+    "before": "Binding the router requires identity verification. Please enter the password of the current TP-LINK ID:",
+    "after": "Binding the router requires identity verification. Please enter the password of the current TP-LINK ID: "
+   },
+   {
+    "key": "路由器绑定ID失败",
+    "before": "Router binding ID failed",
+    "after": "Router binding ID failed "
+   },
+   {
+    "key": "IP地址的网段非法，不能为0.0.0.0，请重新输入。",
+    "before": "The network segment of the IP address is illegal and cannot be 0.0.0.0. Please re-enter it.",
+    "after": "The network segment of the IP address is illegal and cannot be 0.0.0.0. Please re-enter it. "
+   },
+   {
+    "key": "子网掩码不能为0.0.0.0，请重新输入。",
+    "before": "The subnet mask cannot be 0.0.0.0, please re-enter it.",
+    "after": "The subnet mask cannot be 0.0.0.0, please re-enter it. "
+   },
+   {
+    "key": "网关地址不能为0.0.0.0，请重新输入。",
+    "before": "The gateway address cannot be 0.0.0.0, please re-enter it.",
+    "after": "The gateway address cannot be 0.0.0.0, please re-enter it. "
+   },
+   {
+    "key": "首选DNS服务器地址不能为0.0.0.0，请重新输入。",
+    "before": "The preferred DNS server address cannot be 0.0.0.0, please re-enter it.",
+    "after": "The preferred DNS server address cannot be 0.0.0.0, please re-enter it. "
+   },
+   {
+    "key": "游戏频段",
+    "before": "gaming band",
+    "after": " gaming band"
+   },
+   {
+    "key": "访客频段",
+    "before": "guest band",
+    "after": " guest band"
+   },
+   {
+    "key": "联系客服",
+    "before": "Contact customer service",
+    "after": " Contact customer service"
+   },
+   {
+    "key": "AddHyFiExtension: TPHyfiNetUtil.getScanHyFiDeviceStatus:  扫描状态:",
+    "before": "AddHyFiExtension: TPHyfiNetUtil.getScanHyFiDeviceStatus: Scan status:",
+    "after": "AddHyFiExtension: TPHyfiNetUtil.getScanHyFiDeviceStatus: Scan status: "
+   },
+   {
+    "key": "中,",
+    "before": "middle,",
+    "after": "middle, "
+   },
+   {
+    "key": "direction 参数",
+    "before": "direction parameter",
+    "after": "direction parameter "
+   },
+   {
+    "key": "为无效值",
+    "before": "is an invalid value",
+    "after": " is an invalid value"
+   },
+   {
+    "key": "fullScreenPatch 参数",
+    "before": "fullScreenPatch parameters",
+    "after": "fullScreenPatch parameters "
+   },
+   {
+    "key": "如以上操作仍然无效，请拨打TP-LINK客服电话",
+    "before": "If the above operations still do not work, please call TP-LINK customer service hotline",
+    "after": "If the above operations still do not work, please call TP-LINK customer service hotline "
+   },
+   {
+    "key": "正在发现设备...",
+    "before": "Discovering device...",
+    "after": "Discovering device...  "
+   },
+   {
+    "key": "MAC地址不能为全零，请输入正确的MAC地址",
+    "before": "The MAC address cannot be all zeros, please enter the correct MAC address",
+    "after": "The MAC address cannot be all zeros, please enter the correct MAC address "
+   },
+   {
+    "key": "WPS PIN码长度错误，请重新设置",
+    "before": "WPS PIN code length is wrong, please reset",
+    "after": "WPS PIN code length is wrong, please reset "
+   }
+  ],
+  "note": "Applied only to literals immediately adjacent to '+' in the bundle source; standalone literals are untouched. cache.json was NOT edited."
+ },
+ "cacheGapAttribution": {
+  "note": "build-cache.mjs (regex literal scanner) missed 776 unique CJK UI strings because of a scanner desync; cache.json still covers most of them because the same strings appear in res/values or were re-added.",
+  "gapStringsFromScannerMiss": {
+   "unique": 776,
+   "coveredByRealCache": 1,
+   "onlySupplement": 775,
+   "uncovered": 0,
+   "samplesCache": [
+    {
+     "zh": "已连接",
+     "en": "Connected"
+    }
+   ],
+   "samplesSupplement": [
+    {
+     "zh": "格式错误，正确格式如：172.0.0.1",
+     "en": "The format is wrong, the correct format is: 172.0.0.1",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "每段数字范围为0~255",
+     "en": "The range of each number is 0~255",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "不能为0.0.0.0",
+     "en": "Cannot be 0.0.0.0",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "这是组播地址，请使用其他地址",
+     "en": "This is a multicast address, please use another address",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "这是保留地址，请使用其他地址",
+     "en": "This is a reserved address, please use another address",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "这是环回地址，请使用其他地址",
+     "en": "This is the loopback address, please use another address",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "这是广播地址，请使用其他地址",
+     "en": "This is the broadcast address, please use another address",
+     "cacheState": "absent"
+    },
+    {
+     "zh": "IPv6地址格式错误！正确格式为X:X:X:X:X:X:X:X（X为四位十六进制数），支持零压缩法，请重新输入",
+     "en": "IPv6 address format error! The correct format is X:X:X:X:X:X:X:X (X is a four-digit hexadecimal number). It supports zero compression. Please re-enter.",
+     "cacheState": "absent"
+    }
+   ],
+   "samplesUncovered": []
+  },
+  "codeishStringsExcludedByCacheGenerator": [
+   {
+    "zh": "startAddDevice: 添加扩展器失败 ！， errorCode =>",
+    "chosen": "cache-extra.json",
+    "cache": "absent",
+    "extra": "valid",
+    "en": "startAddDevice: Failed to add extender! , errorCode =>"
+   },
+   {
+    "zh": "双WAN口仅可用于宽带接入，无法用于有线Mesh组网;若连接终端，将无法正常上网或管理路由器，确定保存吗?",
+    "chosen": "cache-extra.json",
+    "cache": "absent",
+    "extra": "valid",
+    "en": "The dual WAN ports can only be used for broadband access and cannot be used for wired Mesh networking. If you connect to a terminal, you will not be able to access the Internet or manage the router normally. Are you sure to save it?"
+   },
+   {
+    "zh": "1.如果您在公共场所使用本设备，为保证信息安全，请不要开启易展按键;",
+    "chosen": "cache-extra.json",
+    "cache": "absent",
+    "extra": "valid",
+    "en": "1. If you are using this device in a public place, to ensure information security, please do not turn on the Yizhan button;"
+   },
+   {
+    "zh": "文件夹名称中不能包含/:*?\"&lt;&gt;|等字符，请重新输入",
+    "chosen": "cache-extra.json",
+    "cache": "absent",
+    "extra": "valid",
+    "en": "The folder name cannot contain characters such as /:*?\"<>|, please re-enter it."
+   }
+  ],
+  "allCjkLiteralsOutsideDictionary": {
+   "unique": 3934,
+   "chosenCache": 3154,
+   "chosenSupplement": 780,
+   "uncovered": 0,
+   "uncoveredSamples": []
+  },
+  "supplementalCache": {
+   "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/cache-extra.json",
+   "entries": 3656
+  }
+ },
+ "stillChinese": {
+  "business": {
+   "allowlistedDataTable": {
+    "count": 0,
+    "note": "business.bundle contains no data tables"
+   },
+   "anythingElse": {
+    "count": 0,
+    "strings": []
+   }
+  },
+  "sdk": {
+   "allowlistedDataTable": {
+    "count": 1014,
+    "occurrences": 1020,
+    "cjkCodePoints": 6353,
+    "module": "WordToPinDictionary module (e.dictionary / e.polyphonic / e.english)"
+   },
+   "anythingElse": {
+    "count": 0,
+    "strings": [],
+    "note": "none"
+   }
+  }
+ },
+ "allowlist": {
+  "dictionaryModule": {
+   "file": "sdk.bundle",
+   "what": "WordToPinDictionary module (e.dictionary / e.polyphonic / e.english)",
+   "region": {
+    "start": 949412,
+    "end": 999156,
+    "cjkLiterals": 1020
+   },
+   "cjkLiteralsLeft": 1020,
+   "uniqueStringsLeft": 1014,
+   "cjkCodePointsLeft": 6353,
+   "justification": "Pinyin -> Chinese character lookup tables consumed by code (e.g. key 'a' -> '阿啊呵腌', key 'yi' -> '一以已意议义...'), used for Chinese search/input; never displayed as UI text. Translating them would corrupt the search tables, so they are deliberately preserved. Verified byte-identical between original and patched sdk.bundle."
+  },
+  "regexCharacterClasses": {
+   "what": "CJK-bearing \\u escapes OUTSIDE string literals: JavaScript regex character classes",
+   "business": {
+    "count": 22,
+    "samples": [
+     {
+      "esc": "\\u4E00",
+      "ctx": "916AP',l='\\u9762\\u677fAP',f='\\u5176\\u4ed6',o=function(n){if(!n)return f;var o=n.replace(/[\\u4E00-\\u9FA5]/g,''),s=o.indexOf('AP'),C=o.lastIndexOf('-'),x='';return-1!=(x='-1'==s&&'-1"
+     },
+     {
+      "esc": "\\u9FA5",
+      "ctx": "l='\\u9762\\u677fAP',f='\\u5176\\u4ed6',o=function(n){if(!n)return f;var o=n.replace(/[\\u4E00-\\u9FA5]/g,''),s=o.indexOf('AP'),C=o.lastIndexOf('-'),x='';return-1!=(x='-1'==s&&'-1'==C?o:"
+     },
+     {
+      "esc": "\\u4E00",
+      "ctx": "arguments[3];return{message:t,trigger:n,validator:function(t){return 1!=/[^0-9a-z_\\-\\u00b7\\u4E00-\\u9FFFF\\s]/gi.test(t)}}},de=function(){var t=arguments.length>0&&void 0!==arguments"
+     },
+     {
+      "esc": "\\u9FFF",
+      "ctx": "ts[3];return{message:t,trigger:n,validator:function(t){return 1!=/[^0-9a-z_\\-\\u00b7\\u4E00-\\u9FFFF\\s]/gi.test(t)}}},de=function(){var t=arguments.length>0&&void 0!==arguments[0]?arg"
+     },
+     {
+      "esc": "\\u4e00",
+      "ctx": "t.defineProperty(e,\"__esModule\",{value:!0}),e.checkSsidAlphaChar=function(n){var t=!1;/.*[\\u4e00-\\u9fa5]+.*$/.test(n)&&(t=!0);for(var u=0;u<n.length;u++){var A=n.charAt(u);(A<' '||"
+     },
+     {
+      "esc": "\\u9fa5",
+      "ctx": "eProperty(e,\"__esModule\",{value:!0}),e.checkSsidAlphaChar=function(n){var t=!1;/.*[\\u4e00-\\u9fa5]+.*$/.test(n)&&(t=!0);for(var u=0;u<n.length;u++){var A=n.charAt(u);(A<' '||A>'~')&"
+     },
+     {
+      "esc": "\\u4E00",
+      "ctx": "l>t||l<=0?s(\"devname\",63==t?u.VALUE_TOO_LONG_63:u.VALUE_TOO_LONG):A&&1==/[^0-9a-z_\\-\\u00b7\\u4E00-\\u9FFFF\\s]/gi.test(n)?s(\"devname\",u.INVALID_VALUE):s(\"devname\",u.OK)},checkLeaseTim"
+     },
+     {
+      "esc": "\\u9FFF",
+      "ctx": "=0?s(\"devname\",63==t?u.VALUE_TOO_LONG_63:u.VALUE_TOO_LONG):A&&1==/[^0-9a-z_\\-\\u00b7\\u4E00-\\u9FFFF\\s]/gi.test(n)?s(\"devname\",u.INVALID_VALUE):s(\"devname\",u.OK)},checkLeaseTime:funct"
+     }
+    ]
+   },
+   "sdk": {
+    "count": 7,
+    "samples": [
+     {
+      "esc": "\\uF900",
+      "ctx": "\\d\\d:?\\d\\d/gi,_e=/Z|[+-]\\d\\d(?::?\\d\\d)?/gi,ye=/[0-9]{0,256}['a-z\\u00A0-\\u05FF\\u0700-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFF07\\uFF10-\\uFFEF]{1,256}|[\\u0600-\\u06FF\\/]{1,256}(\\s*?[\\u0600-\\u06F"
+     },
+     {
+      "esc": "\\u4e00",
+      "ctx": "t(s,l,c)):void 0!==l&&(n[p]=l));return n},y=(e.containsChinese=function(t){if(t)return/.*[\\u4e00-\\u9fa5]+.*$/.test(t)},e.sTrim=function(t){return t?t.replace(/^\\s+|\\s+$/g,''):''},e"
+     },
+     {
+      "esc": "\\u9fa5",
+      "ctx": ")):void 0!==l&&(n[p]=l));return n},y=(e.containsChinese=function(t){if(t)return/.*[\\u4e00-\\u9fa5]+.*$/.test(t)},e.sTrim=function(t){return t?t.replace(/^\\s+|\\s+$/g,''):''},e.isChar"
+     },
+     {
+      "esc": "\\u4e00",
+      "ctx": ".[0-9]+)?$/,naturalNumber:/^0$|^[1-9]+[0-9]*$/,positiveInteger:/^[1-9]+[0-9]*$/,model:/^([\\u4e00-\\u9fa5]|[a-z]|[A-Z]|[0-9]|\\-|\\/|\\s|\\uff08|\\uff09|\\(|\\))+$/,ip:/^([1-9]?\\d|1\\d\\d|2[0"
+     },
+     {
+      "esc": "\\u9fa5",
+      "ctx": ")?$/,naturalNumber:/^0$|^[1-9]+[0-9]*$/,positiveInteger:/^[1-9]+[0-9]*$/,model:/^([\\u4e00-\\u9fa5]|[a-z]|[A-Z]|[0-9]|\\-|\\/|\\s|\\uff08|\\uff09|\\(|\\))+$/,ip:/^([1-9]?\\d|1\\d\\d|2[0-4]\\d|2"
+     },
+     {
+      "esc": "\\u4e00",
+      "ctx": "0|224|192|128|0)\\.0|255\\.255\\.255\\.(254|252|248|240|224|192|128|0)$/,username:/^[A-Za-z0-9\\u4e00-\\u9fa5~!@#$%^&*()_\\-+={[\\]}|\\\\:;'\"`<,>.?/]+$/,password:/^[A-Za-z0-9~!@#$%^&*()_\\-+="
+     },
+     {
+      "esc": "\\u9fa5",
+      "ctx": "92|128|0)\\.0|255\\.255\\.255\\.(254|252|248|240|224|192|128|0)$/,username:/^[A-Za-z0-9\\u4e00-\\u9fa5~!@#$%^&*()_\\-+={[\\]}|\\\\:;'\"`<,>.?/]+$/,password:/^[A-Za-z0-9~!@#$%^&*()_\\-+={[\\]}|\\"
+     }
+    ]
+   },
+   "justification": "Character ranges such as /[\\u4e00-\\u9fa5]/ used to validate Chinese input (SSID/username/device-name checks) and ECMAScript date regexes (\\uF900-\\uFDCF). These are executable code, not UI text."
+  }
+ },
+ "placeholderParity": {
+  "business": {
+   "gate": "exact token sequence (count AND order); reordering allowed only for named/positional tokens",
+   "mismatches": 0,
+   "mismatchSamples": [],
+   "namedPlaceholdersReordered": 0,
+   "placeholderBearingLiteralsVerified": 44,
+   "result": "PASS"
+  },
+  "sdk": {
+   "gate": "exact token sequence (count AND order); reordering allowed only for named/positional tokens",
+   "mismatches": 0,
+   "mismatchSamples": [],
+   "namedPlaceholdersReordered": 0,
+   "placeholderBearingLiteralsVerified": 0,
+   "result": "PASS"
+  }
+ },
+ "nodeCheck": {
+  "before_patched_bundles": {
+   "note": "baseline: run on the pristine vendor bundles",
+   "business": {
+    "status": "pass",
+    "exitCode": 0,
+    "checked": "bundle-vendor.js"
+   },
+   "sdk": {
+    "status": "pass",
+    "exitCode": 0,
+    "checked": "sdk.bundle"
+   }
+  },
+  "after_patched_bundles": {
+   "note": "patched bundles must not be worse than the baseline",
+   "business": {
+    "status": "pass",
+    "exitCode": 0,
+    "checked": "business.bundle.patched"
+   },
+   "sdk": {
+    "status": "pass",
+    "exitCode": 0,
+    "checked": "sdk.bundle.patched"
+   }
+  },
+  "notWorseThanBaseline": true
+ },
+ "structuralSanity": {
+  "business": {
+   "cjkLiteralsAfter": 0,
+   "cjkLiteralsAfterOutsideAllowlist": 0,
+   "unexpectedChineseAfter": 0,
+   "cjkCodePointsBefore": 45306,
+   "cjkCodePointsAfter": 22,
+   "cjkCodePointsInAllowlist": 22,
+   "rawNonAsciiCodePointsAfter": 0,
+   "escapesBefore": 48431,
+   "escapesAfter": 343,
+   "dCallsBefore": 1248,
+   "dCallsAfter": 1248,
+   "truncated": false,
+   "sanitizeIssues": 0
+  },
+  "sdk": {
+   "cjkLiteralsAfter": 1020,
+   "cjkLiteralsAfterOutsideAllowlist": 0,
+   "unexpectedChineseAfter": 0,
+   "cjkCodePointsBefore": 19399,
+   "cjkCodePointsAfter": 6360,
+   "cjkCodePointsInAllowlist": 6360,
+   "rawNonAsciiCodePointsAfter": 0,
+   "escapesBefore": 22596,
+   "escapesAfter": 9045,
+   "dCallsBefore": 1580,
+   "dCallsAfter": 1580,
+   "truncated": false,
+   "sanitizeIssues": 0
+  },
+  "independentCheck": {
+   "zeroCjkOutsideAllowlist": true,
+   "dictionaryUntouched": true,
+   "noRawNonAscii": true,
+   "dCallsUnchanged": true,
+   "sizeSane": true
+  }
+ },
+ "bundles": {
+  "business": {
+   "file": "business.bundle",
+   "patchedPath": "work/bundle/business.bundle.patched",
+   "bytesBefore": 5067583,
+   "bytesAfter": 4971236,
+   "bytesDelta": -96347,
+   "sha256Patched": "9d7dc1d4422dd9ab9542b1a8157d53c97ce26325b31ef578647f85382ac7ed6f",
+   "literalsTotal": 46638,
+   "literalsWithCjkBefore": 5817,
+   "uniqueCjkLiteralsBefore": 2668,
+   "literalsReplacedUnique": 2668,
+   "occurrencesReplaced": 5817,
+   "replacedFromMainCache": 4697,
+   "replacedFromSupplementalCache": 1120,
+   "fragmentOverrideOccurrences": 441,
+   "fragmentOverrideUnique": 180,
+   "autoSpaceJunctionOccurrences": 33,
+   "whitespaceFidelityOccurrences": 52,
+   "changedVsPreviousBuildOccurrences": 526,
+   "changedVsPreviousBuildUnique": 236,
+   "cacheSources": [
+    "cache.json:11849",
+    "cache-extra.json:3656"
+   ],
+   "structural": {
+    "cjkLiteralsAfter": 0,
+    "cjkLiteralsAfterOutsideAllowlist": 0,
+    "unexpectedChineseAfter": 0,
+    "cjkCodePointsBefore": 45306,
+    "cjkCodePointsAfter": 22,
+    "cjkCodePointsInAllowlist": 22,
+    "rawNonAsciiCodePointsAfter": 0,
+    "escapesBefore": 48431,
+    "escapesAfter": 343,
+    "dCallsBefore": 1248,
+    "dCallsAfter": 1248,
+    "truncated": false,
+    "sanitizeIssues": 0
+   },
+   "placeholderParity": {
+    "gate": "exact token sequence (count AND order); reordering allowed only for named/positional tokens",
+    "mismatches": 0,
+    "mismatchSamples": [],
+    "namedPlaceholdersReordered": 0,
+    "placeholderBearingLiteralsVerified": 44,
+    "result": "PASS"
+   },
+   "nodeCheck": {
+    "baseline": {
+     "status": "pass",
+     "exitCode": 0,
+     "checked": "bundle-vendor.js"
+    },
+    "patched": {
+     "status": "pass",
+     "exitCode": 0,
+     "checked": "business.bundle.patched"
+    }
+   }
+  },
+  "sdk": {
+   "file": "sdk.bundle",
+   "patchedPath": "work/bundle/sdk.bundle.patched",
+   "bytesBefore": 3505805,
+   "bytesAfter": 3479446,
+   "bytesDelta": -26359,
+   "sha256Patched": "9b685bdf202a7f6997a72ae75bfba9f0a3f984655f2b6bb9bc04f55d27403957",
+   "literalsTotal": 45994,
+   "literalsWithCjkBefore": 2675,
+   "uniqueCjkLiteralsBefore": 2378,
+   "literalsReplacedUnique": 1367,
+   "occurrencesReplaced": 1655,
+   "replacedFromMainCache": 1628,
+   "replacedFromSupplementalCache": 27,
+   "fragmentOverrideOccurrences": 22,
+   "fragmentOverrideUnique": 13,
+   "autoSpaceJunctionOccurrences": 2,
+   "whitespaceFidelityOccurrences": 9,
+   "changedVsPreviousBuildOccurrences": 33,
+   "changedVsPreviousBuildUnique": 22,
+   "cacheSources": [
+    "cache.json:11849",
+    "cache-extra.json:3656"
+   ],
+   "structural": {
+    "cjkLiteralsAfter": 1020,
+    "cjkLiteralsAfterOutsideAllowlist": 0,
+    "unexpectedChineseAfter": 0,
+    "cjkCodePointsBefore": 19399,
+    "cjkCodePointsAfter": 6360,
+    "cjkCodePointsInAllowlist": 6360,
+    "rawNonAsciiCodePointsAfter": 0,
+    "escapesBefore": 22596,
+    "escapesAfter": 9045,
+    "dCallsBefore": 1580,
+    "dCallsAfter": 1580,
+    "truncated": false,
+    "sanitizeIssues": 0
+   },
+   "placeholderParity": {
+    "gate": "exact token sequence (count AND order); reordering allowed only for named/positional tokens",
+    "mismatches": 0,
+    "mismatchSamples": [],
+    "namedPlaceholdersReordered": 0,
+    "placeholderBearingLiteralsVerified": 0,
+    "result": "PASS"
+   },
+   "nodeCheck": {
+    "baseline": {
+     "status": "pass",
+     "exitCode": 0,
+     "checked": "sdk.bundle"
+    },
+    "patched": {
+     "status": "pass",
+     "exitCode": 0,
+     "checked": "sdk.bundle.patched"
+    }
+   }
+  }
+ },
+ "spotChecks": {
+  "stats": {
+   "business": {
+    "allowlistedDataLiteralsInSource": 0,
+    "uniqueTranslatedLiterals": 5817,
+    "emittedAndDecodedExactly": 5817,
+    "notFound": 0,
+    "problems": 0,
+    "fromFragmentOverrides": 441
+   },
+   "sdk": {
+    "allowlistedDataLiteralsInSource": 1020,
+    "uniqueTranslatedLiterals": 1655,
+    "emittedAndDecodedExactly": 1655,
+    "notFound": 0,
+    "problems": 0,
+    "fromFragmentOverrides": 22
+   }
+  },
+  "businessSamples": [
+   {
+    "zh": "保存成功",
+    "en": "Saved",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "已用流量(GB)",
+    "en": "Used traffic (GB)",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "遵照国家法律法规，路由器正在做退避雷达信号探测，Wi-Fi信号要",
+    "en": "In compliance with national laws and regulations, the router is performing radar-signal avoidance detection; the Wi-Fi signal must ",
+    "kind": "override",
+    "concat": true
+   },
+   {
+    "zh": "MLO功能需要多频合一功能开启，加密模式包含WPA2/WPA3且工作模式支持802.11be时正常生效。",
+    "en": "The MLO function requires the multi-frequency integration function to be turned on, the encryption mode includes WPA2/WPA3 and the working mode supports 802.11be to take effect normally.",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "编辑日历",
+    "en": "editorial calendar",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "请输入模式名称",
+    "en": "Please enter a schema name",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "子网掩码：",
+    "en": "Subnet mask:",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "信号弱",
+    "en": "weak signal",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "SFP口速率",
+    "en": "SFP port rate",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "保存成功",
+    "en": "Saved",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "手动添加",
+    "en": "Add manually",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "配对失败",
+    "en": "Pairing failed",
+    "kind": "cache",
+    "concat": false
+   }
+  ],
+  "sdkSamples": [
+   {
+    "zh": "还差一步就能成功添加了，确定要退出吗？",
+    "en": "There is still one step left to successfully add it. Are you sure you want to exit?",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "请输入",
+    "en": "Please enter ",
+    "kind": "override",
+    "concat": true
+   },
+   {
+    "zh": "选择设备",
+    "en": "Select device",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "账户类型错误",
+    "en": "Wrong account type",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "IP地址和子网掩码不匹配",
+    "en": "IP address and subnet mask do not match",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "文件夹路径长度错误，请重新设置",
+    "en": "Folder path length is wrong, please reset",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "连接relayd错误",
+    "en": "Connection relayd error",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "focus_limited错误",
+    "en": "focus_limited error",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "速度越界",
+    "en": "speed out of bounds",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "枚举类型，异常",
+    "en": "enum type, exception",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "设备不存在",
+    "en": "Device does not exist",
+    "kind": "cache",
+    "concat": false
+   },
+   {
+    "zh": "双WAN功能已开启，无法进行此操作，请先在端口功能自定义中关闭双WAN功能",
+    "en": "The dual WAN function is turned on and this operation cannot be performed. Please turn off the dual WAN function in port function customization first.",
+    "kind": "cache",
+    "concat": false
+   }
+  ],
+  "placeholderSamples": [
+   {
+    "bundle": "business",
+    "zh": "普通一体机的设备指示灯在正常状态下以每秒1次的频率闪烁。\\n\\n有“易展”按键的一体机，在正常状态下设备指示灯为常绿或常红。",
+    "en": "The device indicator light of an ordinary all-in-one computer flashes once per second under normal conditions. \n\nFor all-in-one machines with the \"Easy to Expand\" button, the device indicator light is always green or red under normal conditions.",
+    "tokens": [
+     "\\n",
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "路由器当前为有线中继模式，以下游戏加速功能无法使用。\\n",
+    "en": "The router is currently in wired relay mode, and the following game acceleration functions cannot be used. \n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "路由器当前为无线中继模式，以下游戏加速功能无法使用。\\n",
+    "en": "The router is currently in wireless relay mode, and the following game acceleration functions cannot be used. \n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "请确认您是否开启了本地网络权限：\\n请前往\"设置-应用-TP-LINK物联-权限\"中查看本地网络权限。",
+    "en": "Please confirm whether you have enabled local network permissions:\nPlease go to \"Settings-Application-TP-LINK IoT-Permissions\" to check the local network permissions.",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "不限制\\n",
+    "en": "No restrictions\n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "不限制\\n",
+    "en": "No restrictions\n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "恢复出厂设置后：\\n",
+    "en": "After factory reset:\n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "1.所有配置参数将恢复到出厂状态；\\n",
+    "en": "1. All configuration parameters will be restored to factory status;\n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "2.路由器的TP-LINK ID登录将被注销；\\n",
+    "en": "2. The router’s TP-LINK ID login will be logged out;\n",
+    "tokens": [
+     "\\n"
+    ]
+   },
+   {
+    "bundle": "business",
+    "zh": "ID登录时进行管理，路由器会自动绑定TP-LINK ID，\\n下次您就可以方便地找到路由器啦！",
+    "en": "Manage when logging in with your ID, and the router will automatically bind the TP-LINK ID.\nYou can easily find the router next time!",
+    "tokens": [
+     "\\n"
+    ]
+   }
+  ],
+  "problems": []
+ },
+ "supplementalCache": {
+  "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/cache-extra.json",
+  "entries": 3656,
+  "report": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/cache-extra-report.json",
+  "placeholdersMismatches": 1,
+  "note": "applied only where cache.json has no valid translation (cache.json wins per-entry when valid)"
+ },
+ "pluginContainer": {
+  "entries": 326,
+  "firstEntry": "business.bundle",
+  "lastEntry": "raw/projects_tplinkrnsdkrouter_describe.json",
+  "businessOrigBytes": 5067583,
+  "businessPatchedBytes": 4971236,
+  "businessOrigSha256": "f5113a96e95004db79431f9a046ce73823218aaa07b9728bd780b4f58af90722",
+  "businessPatchedSha256": "9d7dc1d4422dd9ab9542b1a8157d53c97ce26325b31ef578647f85382ac7ed6f",
+  "containerHeaderBytes": 176,
+  "origContainerBytes": 3014065,
+  "freshZipBytes": 3007899,
+  "deliverableForPackStep": {
+   "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/AB739671AE5E56A529_v1.16.13.1060-master.bin",
+   "bytes": 3008656,
+   "layout": "original [0:757) prefix (176-byte header + describe.json ZIP) + fresh main ZIP",
+   "headerAbsoluteOffsetsValid": true
+  },
+  "header176OnlyAlternate": {
+   "path": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/AB739671AE5E56A529_v1.16.13.1060-master.header176-only.bin",
+   "bytes": 3008075,
+   "layout": "task-spec shape: 176-byte header + fresh main ZIP (drops describe.json)"
+  },
+  "verify": {
+   "AB739671AE5E56A529_v1.16.13.1060-master.bin": {
+    "entries": 326,
+    "orderPreserved": true,
+    "businessBundleByteIdentical": true,
+    "allEntriesReadable": true,
+    "rawBytesReopen": true
+   },
+   "AB739671AE5E56A529_v1.16.13.1060-master.header176-only.bin": {
+    "entries": 326,
+    "orderPreserved": true,
+    "businessBundleByteIdentical": true,
+    "allEntriesReadable": true,
+    "rawBytesReopen": true
+   }
+  }
+ },
+ "method": {
+  "lexer": "work/bundle/lexer.mjs",
+  "apply": "work/bundle/apply.mjs",
+  "pluginBuild": "work/bundle/build-plugin.py",
+  "extraTranslations": "work/bundle/translate-extra.mjs",
+  "spotcheck": "work/bundle/spotcheck.mjs",
+  "gapAttribution": "work/bundle/gap-attribution.mjs"
+ },
+ "knownQualityRisks": [
+  "Concatenation fragments are now handled by the curated fragment override map + automatic junction spacing (see fragmentOverrides section). The named cases now read: duration '3d 5h 2min 1s' (was '3Sky5Hour2Minute1Second'), '%d台已禁设备' -> '3 blocked devices' (was 'Have3Banned device'), '%d台AP' -> '2 APs' (was 'filter out2Taiwan AP').",
+  "Residual, non-CJK items left alone deliberately: (a) Chinese punctuation characters outside the CJK-ideograph ranges (、 U+3001, 。 U+3002, fullwidth parentheses/colons U+FF00 block) can still appear where a literal consists only of that punctuation (e.g. the T.join('和') separator and '（3）' counters); they are not CJK code points and do not affect the zero-CJK gate, but a few may look slightly Chinese-styled. (b) The topology subtitle composes array items via T.join('和') and cannot be reordered by literal substitution, so it remains partly awkward English.",
+  "Plurality of count fragments is static ('1 devices'); MT cannot inflect and literal substitution cannot branch on the number, so this is accepted rather than invented."
+ ],
+ "pluginFinalVerification": "C:/Users/o0o/Documents/deepseek-harness/default-workspace/tl-en/work/bundle/plugin-final-verify.json"
+}

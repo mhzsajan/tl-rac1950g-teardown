@@ -1,0 +1,288 @@
+{
+ "total": 11849,
+ "residualFixed": [],
+ "dataAllowlist": [
+  {
+   "zh": "一以已意议义益亿易医艺食依移衣异伊仪宜射遗疑毅谊亦疫役忆抑尾乙译翼蛇溢椅沂泄逸蚁夷邑怡绎彝裔姨熠贻矣",
+   "len": 91,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "奥澳傲熬凹鳌敖遨鏖袄坳翱嗷拗懊岙螯骜獒鏊",
+   "len": 20,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "信深参身神什审申甚沈伸慎渗肾绅莘呻婶娠砷蜃哂椹",
+   "len": 23,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "措错磋挫搓撮蹉锉厝嵯痤矬",
+   "len": 12,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "资自子字齐咨滋仔姿紫兹孜淄籽梓鲻渍姊吱秭恣甾孳訾滓锱辎趑龇赀眦缁呲",
+   "len": 33,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "制之治质职只志至指织支值知识直致执置止植纸拓智殖秩旨址滞氏枝芝脂帜汁肢挚稚酯掷峙炙栉侄芷窒咫吱趾痔蜘",
+   "len": 66,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "吨顿盾敦蹲墩囤沌钝炖盹遁趸砘礅",
+   "len": 15,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "济机其技基记计系期际及集级几给积极己纪即继击既激绩急奇吉季齐疾迹鸡剂辑籍寄挤圾冀亟寂暨脊跻肌稽忌饥祭",
+   "len": 90,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "我握窝沃卧挝涡斡渥幄蜗喔倭莴龌",
+   "len": 15,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "和合河何核盖贺喝赫荷盒鹤吓呵苛禾菏壑褐涸阂阖劾诃颌嗬貉曷翮纥盍",
+   "len": 31,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "费非飞肥废菲肺啡沸匪斐蜚妃诽扉翡霏吠绯腓痱芾淝悱狒",
+   "len": 25,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "和护许户核湖互乎呼胡戏忽虎沪糊壶葫狐蝴弧瑚浒鹄琥扈唬滹惚祜囫斛笏芴醐猢怙唿戽槲觳煳鹕",
+   "len": 42,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "建间件见坚检健监减简艰践兼鉴键渐柬剑尖肩舰荐箭浅剪俭碱茧奸歼拣捡煎贱溅槛涧堑笺谏饯锏缄睑謇蹇腱菅",
+   "len": 48,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "进金今近仅紧尽津斤禁锦劲晋谨筋巾浸襟靳瑾烬缙钅矜觐堇馑荩噤",
+   "len": 29,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "苦库哭酷裤枯窟挎骷堀绔刳",
+   "len": 12,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "了料疗辽廖聊寥缪僚燎缭撂撩嘹潦镣寮蓼獠",
+   "len": 19,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "嗲",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "嗄",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "眙",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "裼",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "濞",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "擗",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "淠",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "砩",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "灬",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "彡",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "吲",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "肜",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "屮",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "呲",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "哜",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "棹",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "夂",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "柢",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "乇",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "彐",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "柁",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "沲",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "箢",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "楱",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "囗",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "栝",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "哕",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "佴",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "硌",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "哿",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "哏",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "菀",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "蒉",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "凵",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "糸",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "乜",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "恁",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  },
+  {
+   "zh": "拶",
+   "len": 1,
+   "reason": "CJK character catalogue / data table, not UI"
+  }
+ ],
+ "residualLeft": [],
+ "phRemoved": [],
+ "capitalised": 675,
+ "summary": {
+  "total": 11849,
+  "residualFixed": 0,
+  "dataAllowlist": 54,
+  "residualLeft": 0,
+  "phRemoved": 0,
+  "capitalised": 675,
+  "stillCjkAfter": 54
+ }
+}
