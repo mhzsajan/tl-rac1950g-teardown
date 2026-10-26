@@ -1,0 +1,23 @@
+# APK / extracted artifacts — never commit these
+*.apk
+*.xapk
+*.apks
+*.bundle
+*.dex
+*.arsc
+out/
+extracted/
+plugin.zip
+
+# never commit captured data from your own network
+*.pcap
+*.pcapng
+captures/
+
+# editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+node_modules/

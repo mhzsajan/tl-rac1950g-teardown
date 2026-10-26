@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" font-family="Segoe UI, Microsoft YaHei, Helvetica, Arial, sans-serif">
+  <rect width="1600" height="1040" fill="#0d1117"/>
+
+  <!-- header -->
+  <rect x="0" y="0" width="1600" height="120" fill="#161b22"/>
+  <line x1="0" y1="120" x2="1600" y2="120" stroke="#30363d" stroke-width="1"/>
+  <text x="48" y="56" font-size="32" font-weight="700" fill="#e6edf3">TP-Link TL-RAC1950G 易展版</text>
+  <text x="48" y="90" font-size="17" fill="#8b949e">AC1950 EasyMesh router + satellite · firmware 2.0.16 · host-side review</text>
+  <rect x="1310" y="38" width="242" height="44" rx="22" fill="#238636"/>
+  <text x="1431" y="67" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">NOT FISHY</text>
+
+  <!-- topology -->
+  <text x="48" y="168" font-size="13" fill="#7d8590" letter-spacing="2">NETWORK PATH</text>
+
+  <g>
+    <rect x="48" y="192" width="320" height="128" rx="12" fill="#161b22" stroke="#30363d"/>
+    <text x="72" y="226" font-size="19" font-weight="600" fill="#e6edf3">Your PC</text>
+    <text x="72" y="254" font-size="14" fill="#8b949e">192.168.0.4 · LAN client</text>
+    <text x="72" y="286" font-size="13" fill="#7d8590">2 clients total, both known</text>
+  </g>
+
+  <g>
+    <rect x="448" y="192" width="320" height="128" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="472" y="226" font-size="19" font-weight="600" fill="#e6edf3">TL-RAC1950G 易展版</text>
+    <text x="472" y="254" font-size="14" fill="#8b949e">192.168.0.1 · +1 mesh node</text>
+    <text x="472" y="286" font-size="13" fill="#3fb950">no cloud · no TR-069 · no telnet</text>
+  </g>
+
+  <g>
+    <rect x="848" y="192" width="320" height="128" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="872" y="226" font-size="19" font-weight="600" fill="#e6edf3">ISP ONT</text>
+    <text x="872" y="254" font-size="14" fill="#8b949e">192.168.254.254 · upstream</text>
+    <text x="872" y="286" font-size="13" fill="#3fb950">80 / 443 / 22 / 23 closed</text>
+  </g>
+
+  <g>
+    <rect x="1248" y="192" width="320" height="128" rx="12" fill="#161b22" stroke="#30363d"/>
+    <text x="1272" y="226" font-size="19" font-weight="600" fill="#e6edf3">Internet</text>
+    <text x="1272" y="254" font-size="14" fill="#8b949e">double-NAT behind the ONT</text>
+    <text x="1272" y="286" font-size="13" fill="#3fb950">DNS = ISP resolver, not hijacked</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#484f58" stroke-width="2" fill="#484f58">
+    <line x1="368" y1="256" x2="438" y2="256"/>
+    <polygon points="448,256 434,250 434,262"/>
+    <line x1="768" y1="256" x2="838" y2="256"/>
+    <polygon points="848,256 834,250 834,262"/>
+    <line x1="1168" y1="256" x2="1238" y2="256"/>
+    <polygon points="1248,256 1234,250 1234,262"/>
+  </g>
+
+  <!-- findings -->
+  <text x="48" y="386" font-size="13" fill="#7d8590" letter-spacing="2">WHAT WAS VERIFIED</text>
+
+  <g font-size="15" fill="#c9d1d9">
+    <!-- row 1 -->
+    <circle cx="55" cy="411" r="6" fill="#3fb950"/><text x="72" y="416">No TP-LINK ID bound — cloud is off</text>
+    <circle cx="567" cy="411" r="6" fill="#3fb950"/><text x="584" y="416">Andlink (China Mobile) compiled out</text>
+    <circle cx="1079" cy="411" r="6" fill="#3fb950"/><text x="1096" y="416">wo-Link (China Unicom) compiled out</text>
+    <!-- row 2 -->
+    <circle cx="55" cy="483" r="6" fill="#3fb950"/><text x="72" y="488">Telnet / SSH absent, port 23 closed</text>
+    <circle cx="567" cy="483" r="6" fill="#3fb950"/><text x="584" y="488">TR-069 / port 7547 closed</text>
+    <circle cx="1079" cy="483" r="6" fill="#3fb950"/><text x="1096" y="488">No port-forward, DMZ or UPnP IGD</text>
+    <!-- row 3 -->
+    <circle cx="55" cy="555" r="6" fill="#3fb950"/><text x="72" y="560">Syslog local only, no remote host</text>
+    <circle cx="567" cy="555" r="6" fill="#3fb950"/><text x="584" y="560">Firmware current, upgrade is manual</text>
+    <circle cx="1079" cy="555" r="6" fill="#3fb950"/><text x="1096" y="560">No CVEs in NVD for this model</text>
+    <!-- row 4 (warnings) -->
+    <circle cx="55" cy="627" r="6" fill="#3fb950"/><text x="72" y="632">Only 2 LAN clients, both known</text>
+    <circle cx="567" cy="627" r="6" fill="#d29922"/><text x="584" y="632" fill="#d29922">e-Link (China Telecom) enabled — inert</text>
+    <circle cx="1079" cy="627" r="6" fill="#d29922"/><text x="1096" y="632" fill="#d29922">Admin UI is HTTP-only, no TLS</text>
+  </g>
+
+  <!-- app panel -->
+  <text x="48" y="700" font-size="13" fill="#7d8590" letter-spacing="2">APP LOCALIZATION · com.tplink.ipc 5.15.22.2003</text>
+  <rect x="48" y="718" width="1504" height="192" rx="12" fill="#161b22" stroke="#30363d"/>
+  <g font-size="15" fill="#c9d1d9">
+    <text x="72" y="754">Router firmware ships only a “cn” language pack — /web-static/language/en/str.js returns 404.</text>
+    <text x="72" y="786">Both React Native bundles (business.bundle 5.3 MB, sdk.bundle 3.5 MB) contain 0 CJK characters.</text>
+    <text x="72" y="818" fill="#3fb950">Labels present in resources.arsc — 设备管理, 网络状态, 管理员密码, 恢复出厂 — are patchable.</text>
+    <text x="72" y="850" fill="#d29922">Labels in neither (路由设置, 上网设置, 无线设置, 主人网络) come from the router → not translatable app-side.</text>
+    <text x="72" y="882" fill="#7d8590">Method and commands: see README.md</text>
+  </g>
+
+  <!-- footer -->
+  <text x="48" y="962" font-size="13" fill="#6e7681">Verified 2026-10-26 · no credentials, SSIDs, MACs or personal identifiers are published</text>
+</svg>
