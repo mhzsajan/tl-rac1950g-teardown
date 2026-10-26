@@ -31,7 +31,8 @@ re-run it on yours and get your own answer instead of trusting mine.
 | Class | AC1950 dual-band, EasyMesh ("易展") capable |
 | OUI | `68:77:24` → TP-Link Technologies, Shenzhen |
 | Firmware | Main **2.0.16**, satellite `_6037` **2.0.12** |
-| Admin UI | `http://192.168.0.1` — TP-Link China `dynaform` UI |
+| Admin UI | **factory default `http://192.168.10.1`** (back label) — this unit runs `192.168.0.1` |
+| UI framework | TP-Link China `dynaform` |
 | Web server | **HTTP only**, on TCP **80** and TCP **1900** |
 | Auth | SCRAM-style PBKDF2-SHA256, 1000 iterations |
 | Language packs | **`cn` only** |
@@ -255,15 +256,63 @@ The web UI hardcodes its language path in `class.js`:
 There is exactly one language pack on the device, and it is Chinese. This is a
 China-market SKU; no international firmware branch exists for it.
 
-### What this means in practice
+### The correction: the app already ships a full English translation
 
-- **Translatable:** labels that live in `resources.arsc`. A normal `apktool` +
-  `values-en/strings.xml` patch handles these, and that is why the first screen
-  translated successfully.
-- **Not translatable app-side:** labels that exist in neither the bundles nor the
-  resources. They arrive from the router at runtime, and the router only speaks
-  Chinese. Changing them requires replacing the router's own `str.js` — i.e. firmware
-  access, which this device does not expose (no telnet, no shell).
+The obvious next question is "then where is the English?" It is already in the APK.
+Comparing the two resource sets settles it:
+
+| Resource set | Strings | Containing CJK |
+|---|---|---|
+| `res/values/` (default) | 10,464 | **8,968** |
+| `res/values-en/` | 8,969 | **0** |
+
+Every one of the 8,967 CJK strings in the default set has an English counterpart, and
+**all 8,967 differ from the Chinese** — none are copy-paste placeholders. Examples:
+
+| Resource | Chinese (default) | English (`values-en`) |
+|---|---|---|
+| `LAN_video_all_channel` | 所有通道 | All channels |
+| `LAN_video_cancel_download` | 取消下载 | Cancel |
+| `LAN_video_download_leave_hours` | `%1$d小时%2$d分钟` | `%1$d h %2$d min` |
+| `LAN_video_download_not_leave` | 大约需要%1$s，请勿离开当前页面 | Approximately %1$s is required, please do not leave the current page |
+
+So the app was never untranslated. It has a complete English translation — it just
+isn't the **default**. `values/` is Chinese, and `values-en/` is only consulted when
+the resolved locale is English. Anything that resolves to something else — a system
+language set to Chinese, or a locale the app sets for itself — falls back to the
+Chinese default.
+
+### The fix that actually works
+
+Replace the Chinese defaults with their shipped English counterparts. No translation
+was invented; the strings were already there.
+
+| What | Count |
+|---|---|
+| `values/strings.xml` CJK strings swapped for their `values-en` text | 8,967 |
+| Strings with no English counterpart, translated by hand | 1 (`app_error` → "App error") |
+| Dropdown / survey `<item>` entries across 85 string-arrays | 449 items, 278 unique phrases |
+| Library strings in `values-zh/strings.xml` | 2 |
+
+After the patch, `res/values/*.xml` contains **zero CJK characters**. Because the
+*default* resource set is now English, it renders English under any locale —
+including a forced Chinese one, since `values-zh` then only carries the two library
+strings (also translated) and everything else falls back to the English default.
+
+Two details worth knowing if you reproduce it:
+
+- **`week_day` is ambiguous.** `日` means "Day" in `date_unit_list` (年/月/日) but
+  "Sunday" in `week_day` (日/一/二/三/四/五/六). A single string→string map gives the
+  wrong one; the weekday array has to be fixed separately.
+- **Do not touch the `formatted` attributes.** The English text already carries the
+  same `%1$d` / `%1$s` placeholders, so swapping only the element body is safe.
+
+### What is still Chinese, and why
+
+Labels that exist in **neither** the bundles nor the resources: 路由设置, 上网设置,
+无线设置, 主人网络. They arrive from the router at runtime, and the router only speaks
+Chinese. Changing them requires replacing the router's own `str.js` — i.e. firmware
+access, which this device does not expose (no telnet, no shell).
 
 So the settings page really is stuck, **but not because "the app can't be translated."**
 It is stuck because that specific page's vocabulary is fetched from a device that has
@@ -274,11 +323,19 @@ no English dictionary.
 > you MITM the app's local API and find them in a response, that would confirm it — a
 > useful contribution if you have the setup.
 
-### Redistribution warning
+### Distribution and scope of the licence
 
-Do **not** publish a patched or unpatched copy of the TP-Link APK. It is proprietary
-software. The method, the measurements and the tooling are what belong in a repo like
-this; the binaries do not.
+This repository is **private**. Both APKs are attached as private release assets for
+personal use on the owner's own device:
+
+- the **official** `com.tplink.ipc` build as pulled from the device, and
+- the **English** build produced by the patch above.
+
+Both are TP-Link's proprietary software, and the English build is a derivative of it.
+Keeping a copy you already own in private storage is not redistribution — but
+**making this repository public with those assets attached would be**, and that is
+not something the licence below grants. The MIT licence covers the text, the diagram
+and the tooling in this repo only; it does not extend to either APK.
 
 ---
 
