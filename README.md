@@ -203,36 +203,53 @@ Two things fall out of this immediately:
 - `business.bundle` is a **plain Metro bundle**, not Hermes bytecode
   (`__d(function(g,r,i,a,m,e,d){…`), so it is ordinary JavaScript.
 
-### The decisive measurement
+### The decisive measurement (and why the first answer was wrong)
 
-Scanning both React Native bundles for CJK characters returns **zero**:
+A naive byte scan of both React Native bundles for CJK characters returns **zero**:
 
-| File | Size | CJK characters |
-|---|---|---|
-| `business.bundle` | 5,260,747 B | **0** |
-| `sdk.bundle` | 3,526,673 B | **0** |
-
-The scanner is not broken — the same pass finds `router` 4,418 times and `http` 187
-times in `business.bundle`. The bundles genuinely contain no Chinese text.
-
-So the app's UI code holds **no user-visible Chinese at all**. Every label it renders
-must be resolved at runtime, from one of two places: Android string resources, or the
-router itself.
-
-### Which labels live where
-
-| Label | `resources.arsc` | RN bundles | Verdict |
+| File | Size | Raw CJK bytes | CJK after decoding `\\uXXXX` |
 |---|---|---|---|
-| 设备管理 | **present** (×2) | 0 | patchable |
-| 网络状态 | **present** (×6) | 0 | patchable |
-| 管理员密码 | **present** (×1) | 0 | patchable |
-| 恢复出厂 | **present** (×33) | 0 | patchable |
-| 路由设置 | absent | 0 | router-supplied |
-| 上网设置 | absent | 0 | router-supplied |
-| 无线设置 | absent | 0 | router-supplied |
-| 主人网络 | absent | 0 | router-supplied |
+| `business.bundle` | 5,260,747 B | **0** | **32,220** (849 distinct, in 1,728 literals) |
+| `sdk.bundle` | 3,526,673 B | **0** | **18,041** (529 distinct code points) |
 
-And the router side has no English to offer:
+The zero is a **false negative**, and it is the single most expensive mistake in
+this whole investigation. Metro — the React Native bundler — escapes every
+non-ASCII code unit as `\\uXXXX`. A bundle full of Chinese therefore contains no
+literal CJK bytes, and a raw scan reports 0. That reads as "the bundle holds no
+Chinese, so the Chinese must come from the router or from Android resources" — and
+that conclusion is wrong. The correct instrument decodes the escapes first. See
+[`tools/scan-bundle.mjs`](tools/scan-bundle.mjs), which now does this and reports
+both numbers side by side.
+
+So the app's UI code **does** carry Chinese. It is just wearing an ASCII disguise.
+
+### Which labels live where (corrected)
+
+The bundle does contain Chinese — escaped. But it is not the *original* Chinese.
+A prior pass (the same one that produced the debug-signed APK) ran a naive
+word-substitution over the bundle: each Chinese term was replaced by an English
+word, and **the replacement was written back as `\\uXXXX` escapes too**. The
+result is mangled hybrid text such as `请Confirm是否是本机Equipment。` (originally
+`请确认是否是本机设备。`) — `确认→Confirm`, `设备→Equipment`, `普通→ordinary`,
+`一→one`, `秒→Second`, `离线→Offline`, `退出→quit`. A raw scan reports 0 CJK
+and the text looks English-ish, which is why it was missed.
+
+So the table is more nuanced than "patchable vs. router-supplied":
+
+| Label | `resources.arsc` | RN bundle (decoded) | Verdict |
+|---|---|---|---|
+| 设备管理 | present (×2) | 0 | patchable (resources) |
+| 网络状态 | present (×6) | 0 | patchable (resources) |
+| 管理员密码 | present (×1) | 0 | patchable (resources) |
+| 恢复出厂 | present (×33) | 0 | patchable (resources) |
+| 无线设置 | absent | `none线set up` (mangled) | patchable (bundle) |
+| 上网方式设置 | absent | `上网方式set up` (mangled) | patchable (bundle) |
+| 无线设备接入控制 | absent | `none线Equipment接入控制` (mangled) | patchable (bundle) |
+| 网络拓扑 | present (×2) | `Network Topology` (already English) | done |
+| 访客网络 | absent | `Guest Network` (already English) | done |
+| 重启路由器 | present (×1) | `Restart your router` (already English) | done |
+
+And the router side still has no English to offer:
 
 ```bash
 for l in cn en us zh_CN en_US default; do
@@ -254,7 +271,9 @@ The web UI hardcodes its language path in `class.js`:
 ```
 
 There is exactly one language pack on the device, and it is Chinese. This is a
-China-market SKU; no international firmware branch exists for it.
+China-market SKU; no international firmware branch exists for it. The
+router-supplied strings are therefore still stuck — but far fewer of them are
+router-supplied than the first version of this document claimed.
 
 ### The correction: the app already ships a full English translation
 
@@ -307,28 +326,39 @@ Two details worth knowing if you reproduce it:
 - **Do not touch the `formatted` attributes.** The English text already carries the
   same `%1$d` / `%1$s` placeholders, so swapping only the element body is safe.
 
-### What is still Chinese, and why
+### What is still Chinese, and why (corrected)
 
-Labels that exist in **neither** the bundles nor the resources: 路由设置, 上网设置,
-无线设置, 主人网络. They arrive from the router at runtime, and the router only speaks
-Chinese. Changing them requires replacing the router's own `str.js` — i.e. firmware
-access, which this device does not expose (no telnet, no shell).
+Most of what looked "router-supplied" is actually patchable app-side text that was
+mangled rather than absent. The genuine router-supplied strings are now a much
+smaller set: `路由设置`, `上网设置`, `主人网络` (and a handful of toast/dialog
+phrases). `无线设置`, `无线设备接入控制` and `上网方式设置` are in the bundle and
+were translated in the patched build.
 
-So the settings page really is stuck, **but not because "the app can't be translated."**
-It is stuck because that specific page's vocabulary is fetched from a device that has
-no English dictionary.
+The front-page `本机` badge is also app-side: it is a resource string, and the
+default-locale fix covers it.
 
-> **Caveat, stated plainly:** the router-supplied conclusion is inferred from the
+> **Caveat, stated plainly:** the "router-supplied" conclusion is inferred from the
 > absence of those strings in every local artifact, not proven by packet capture. If
-> you MITM the app's local API and find them in a response, that would confirm it — a
-> useful contribution if you have the setup.
+> you MITM the app's local API and find them in a response, that would confirm it —
+> a useful contribution if you have the setup.
+
+### Provenance caveat (important)
+
+The `base.apk` this work is based on is **debug-signed**
+(`CN=Android Debug`, SHA-256
+`9d66c6d6c992f3a73f0289e5fe0f4c18d335ee6ad365c7cd8d7c2e3d2d5485f3`). It is
+**not** the official TP-Link build — it carries a prior, naive machine-translation
+pass that mangled the bundle (see above). Treat any "official APK" claim in
+earlier notes as wrong. The patched build is a derivative of this already-modified
+copy, not of a clean vendor APK.
 
 ### Distribution and scope of the licence
 
 This repository is **private**. Both APKs are attached as private release assets for
 personal use on the owner's own device:
 
-- the **official** `com.tplink.ipc` build as pulled from the device, and
+- the **as-pulled** `com.tplink.ipc` build (debug-signed, already mangled — see
+  the provenance caveat above), and
 - the **English** build produced by the patch above.
 
 Both are TP-Link's proprietary software, and the English build is a derivative of it.
